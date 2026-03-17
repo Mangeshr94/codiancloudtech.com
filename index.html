@@ -24,7 +24,7 @@
       top: 0;
       background: rgba(27,38,59,0.95);
       backdrop-filter: blur(6px);
-      padding: 15px 40px;
+      padding: 15px 20px;
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
@@ -36,7 +36,8 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 30px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
     .nav-links a {
       color: #e0e1dd;
@@ -48,18 +49,18 @@
 
     .hero {
       text-align: center;
-      padding: 120px 20px;
+      padding: 100px 20px;
       background: linear-gradient(135deg, #1b263b, #0d1b2a);
       animation: fadeIn 1.2s ease-in;
     }
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: #fff;
     }
     .cta {
       display: inline-block;
-      margin-top: 30px;
-      padding: 14px 28px;
+      margin-top: 20px;
+      padding: 12px 24px;
       background: linear-gradient(90deg, #00aaff, #0077cc);
       color: #fff;
       text-decoration: none;
@@ -70,7 +71,7 @@
     .cta:hover { transform: scale(1.05); }
 
     section {
-      padding: 70px 40px;
+      padding: 50px 20px;
       max-width: 1200px;
       margin: auto;
     }
@@ -82,10 +83,10 @@
     }
     .card, .grid-item, .role-card {
       background: #1b263b;
-      padding: 30px;
+      padding: 20px;
       border-radius: 10px;
       flex: 1;
-      min-width: 220px;
+      min-width: 200px;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -94,54 +95,26 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
-    .lead-form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-      margin: auto;
-    }
-    .lead-form input, .lead-form textarea {
-      padding: 12px;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-    }
-    .lead-form button {
-      background: linear-gradient(90deg, #00aaff, #0077cc);
-      color: #fff;
-      padding: 14px;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .lead-form button:hover {
-      background: linear-gradient(90deg, #0077cc, #005fa3);
-    }
-
-    footer {
-      background: #1b263b;
-      text-align: center;
-      padding: 25px;
-      margin-top: 60px;
-      font-size: 0.9rem;
-    }
-    .footer-links a {
-      color: #e0e1dd;
-      margin: 0 10px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .footer-links a:hover { color: #00aaff; }
+    .hidden { display: none; }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .hidden { display: none; }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .hero h1 { font-size: 1.5rem; }
+      .card, .grid-item, .role-card { min-width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 60px 10px; }
+      .cta { padding: 10px 20px; font-size: 0.9rem; }
+    }
   </style>
 </head>
 <body>
@@ -205,7 +178,6 @@
       <div class="role-card">Project Managers</div>
     </div>
   </section>
-
   <!-- Contact -->
   <section id="contact" class="hidden">
     <h2>Contact Us</h2>
@@ -214,7 +186,7 @@
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
       <input type="text" placeholder="Company" required>
-      <textarea placeholder="Project Needs"></textarea>
+      <textarea placeholder="Project Needs" required></textarea>
       <button type="submit">Request a Consultant</button>
     </form>
   </section>
@@ -229,3 +201,32 @@
     </div>
   </footer>
 
+  <script>
+    function showPage(pageId) {
+      // Hide all sections
+      document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+
+      // Special case: Home has two sections (hero + why-choose)
+      if (pageId === "home") {
+        document.getElementById("home").classList.remove("hidden");
+        document.getElementById("home-why").classList.remove("hidden");
+      } else {
+        document.getElementById(pageId).classList.remove("hidden");
+      }
+
+      // Scroll to top when switching
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Handle contact form submission
+    const form = document.querySelector(".lead-form");
+    if (form) {
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        alert("Thank you! A consultant will reach out soon.");
+        form.reset();
+      });
+    }
+  </script>
+</body>
+</html>
