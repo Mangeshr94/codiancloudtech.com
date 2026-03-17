@@ -3,30 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Codian Cloud Technologies | Home</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Codian Cloud Technologies</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0d1b2a;
+      color: #e0e1dd;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: #1b263b;
+      padding: 10px 20px;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: #e0e1dd;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    section {
+      padding: 60px 20px;
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #1b263b, #0d1b2a);
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #415a77;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .cards, .grid, .directory {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .card, .grid-item, .role-card {
+      background: #415a77;
+      padding: 20px;
+      border-radius: 8px;
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+    footer {
+      background: #1b263b;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+    .lead-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+      margin: auto;
+    }
+    .lead-form input, .lead-form textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    .lead-form button {
+      background: #415a77;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hidden { display: none; }
+  </style>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <img src="assets/logo.png" alt="Codian Cloud Technologies" class="logo">
+      <h2>Codian Cloud Technologies</h2>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="ecosystem.html">Specialized Clouds</a></li>
-        <li><a href="roles.html">Talent / Roles</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('services')">Services</a></li>
+        <li><a onclick="showPage('ecosystem')">Specialized Clouds</a></li>
+        <li><a onclick="showPage('roles')">Talent / Roles</a></li>
+        <li><a onclick="showPage('contact')">Contact Us</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
+  <!-- Home -->
+  <section id="home" class="hero">
     <h1>Empowering Enterprise Agility through Salesforce Excellence</h1>
     <p>Codian Cloud Technologies delivers scalable, multi-cloud solutions for modern enterprises.</p>
-    <a href="contact.html" class="cta">Get Started</a>
+    <a onclick="showPage('contact')" class="cta">Get Started</a>
   </section>
-
-  <section class="why-choose">
+  <section id="home-why">
     <h2>Why Choose Us</h2>
     <div class="cards">
       <div class="card">Flexible Engagement: Full-time</div>
@@ -35,14 +122,76 @@
     </div>
   </section>
 
+  <!-- Services -->
+  <section id="services" class="hidden">
+    <h2>Our Services</h2>
+    <ul>
+      <li><strong>Implementation:</strong> End-to-end Salesforce setup</li>
+      <li><strong>Customization:</strong> Tailored workflows, Lightning components</li>
+      <li><strong>Integration:</strong> SAP, Payment Gateways, CTI, SMS</li>
+      <li><strong>Managed Support:</strong> Ongoing monitoring, error handling</li>
+    </ul>
+  </section>
+
+  <!-- Ecosystem -->
+  <section id="ecosystem" class="hidden">
+    <h2>Specialized Clouds</h2>
+    <div class="grid">
+      <div class="grid-item"><h3>Core Clouds</h3><p>Sales, Service, Experience, Marketing, Commerce</p></div>
+      <div class="grid-item"><h3>Industry Clouds</h3><p>Financial Services, Health Cloud, Education, Nonprofit</p></div>
+      <div class="grid-item"><h3>Technical Clouds</h3><p>CPQ, OmniStudio, nCino, Automation QA</p></div>
+    </div>
+  </section>
+
+  <!-- Roles -->
+  <section id="roles" class="hidden">
+    <h2>Available Roles</h2>
+    <div class="directory">
+      <div class="role-card">Architects</div>
+      <div class="role-card">Developers</div>
+      <div class="role-card">Admins</div>
+      <div class="role-card">Business Analysts</div>
+      <div class="role-card">Project Managers</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="hidden">
+    <h2>Contact Us</h2>
+    <p>Phone: +91 93078 222337</p>
+    <form class="lead-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Company" required>
+      <textarea placeholder="Project Needs"></textarea>
+      <button type="submit">Request a Consultant</button>
+    </form>
+  </section>
+
   <footer>
     <p>© 2026 Codian Cloud Technologies | All Rights Reserved</p>
     <div class="footer-links">
-      <a href="services.html">Services</a> | 
-      <a href="ecosystem.html">Clouds</a> | 
-      <a href="roles.html">Roles</a> | 
-      <a href="contact.html">Contact</a>
+      <a onclick="showPage('services')">Services</a> | 
+      <a onclick="showPage('ecosystem')">Clouds</a> | 
+      <a onclick="showPage('roles')">Roles</a> | 
+      <a onclick="showPage('contact')">Contact</a>
     </div>
   </footer>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+      if(pageId === "home") {
+        document.getElementById("home").classList.remove("hidden");
+        document.getElementById("home-why").classList.remove("hidden");
+      } else {
+        document.getElementById(pageId).classList.remove("hidden");
+      }
+    }
+    document.querySelector(".lead-form")?.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Thank you! A consultant will reach out soon.");
+    });
+  </script>
 </body>
 </html>
