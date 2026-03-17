@@ -5,4 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(`Navigating to ${link.textContent}`);
     });
   });
-});
+
+  const form = document.querySelector(".lead-form");
+  if (form) {
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Thank you! A consultant will reach out soon.");
+    });
+  }
