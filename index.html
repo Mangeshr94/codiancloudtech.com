@@ -95,12 +95,34 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
-    .hidden { display: none; }
+    footer {
+      background: #1b263b;
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+      font-size: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .footer-links a {
+      color: #e0e1dd;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 600;
+    }
+    .footer-links a:hover { color: #00aaff; }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    .hidden { display: none; }
 
     /* Responsive Design */
     @media (max-width: 768px) {
@@ -178,56 +200,37 @@
       <div class="role-card">Project Managers</div>
     </div>
   </section>
-    <!-- Contact -->
+
+  <!-- Contact -->
   <section id="contact" class="hidden">
     <h2>Contact Us</h2>
+    <p>Email: info@codiancloudtech.com</p>
     <p>Phone: +91 93078 222337</p>
-    <form class="lead-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <input type="text" placeholder="Company" required>
-      <textarea placeholder="Project Needs" required></textarea>
-      <button type="submit">Request a Consultant</button>
-    </form>
   </section>
 
   <footer>
-    <p>© 2026 Codian Cloud Technologies | All Rights Reserved</p>
     <div class="footer-links">
-      <a onclick="showPage('services')">Services</a> | 
-      <a onclick="showPage('ecosystem')">Clouds</a> | 
-      <a onclick="showPage('roles')">Roles</a> | 
+      <a onclick="showPage('services')">Services</a>
+      <a onclick="showPage('ecosystem')">Clouds</a>
+      <a onclick="showPage('roles')">Roles</a>
       <a onclick="showPage('contact')">Contact</a>
     </div>
   </footer>
 
-  <script>
-    function showPage(pageId) {
-      // Hide all sections
-      document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+<script>
+  function showPage(pageId) {
+    // Hide all sections
+    document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
 
-      // Special case: Home has two sections (hero + why-choose)
-      if (pageId === "home") {
-        document.getElementById("home").classList.remove("hidden");
-        document.getElementById("home-why").classList.remove("hidden");
-      } else {
-        document.getElementById(pageId).classList.remove("hidden");
-      }
-
-      // Scroll to top when switching
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Special case: Home has two sections (hero + why-choose)
+    if (pageId === "home") {
+      document.getElementById("home").classList.remove("hidden");
+      document.getElementById("home-why").classList.remove("hidden");
+    } else {
+      document.getElementById(pageId).classList.remove("hidden");
     }
 
-    // Handle contact form submission
-    const form = document.querySelector(".lead-form");
-    if (form) {
-      form.addEventListener("submit", e => {
-        e.preventDefault();
-        alert("Thank you! A consultant will reach out soon.");
-        form.reset();
-      });
-    }
-  </script>
-</body>
-</html>
-
+    // Scroll to top when switching
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
