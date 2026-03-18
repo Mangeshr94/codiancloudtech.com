@@ -3,221 +3,308 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Codian Cloud Technologies</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <title>Codian Cloud Technologies | Global Salesforce Excellence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0d1b2a;
-      color: #e0e1dd;
-      line-height: 1.6;
+    :root {
+      --primary: #0061ff;
+      --secondary: #0d1b2a;
+      --text-main: #2d3436;
+      --text-light: #636e72;
+      --bg-light: #f8f9fa;
+      --white: #ffffff;
     }
-    h1, h2, h3 {
-      font-family: 'Montserrat', sans-serif;
-      margin-bottom: 0.5em;
-    }
-    a { cursor: pointer; }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--secondary);
+      letter-spacing: -0.02em;
+    }
+
+    /* --- Navigation --- */
     header {
       position: sticky;
       top: 0;
-      background: rgba(27,38,59,0.95);
-      backdrop-filter: blur(6px);
-      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      padding: 1rem 5%;
     }
+
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
     }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 30px;
     }
+
     .nav-links a {
-      color: #e0e1dd;
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.3s;
+      cursor: pointer;
     }
-    .nav-links a:hover { color: #00aaff; }
 
+    .nav-links a:hover { color: var(--primary); }
+
+    /* --- Hero Section --- */
     .hero {
+      padding: 120px 5% 80px;
       text-align: center;
-      padding: 100px 20px;
-      background: linear-gradient(135deg, #1b263b, #0d1b2a);
-      animation: fadeIn 1.2s ease-in;
+      background: radial-gradient(circle at top right, #eef2f3, #ffffff);
     }
+
     .hero h1 {
-      font-size: 2rem;
-      color: #fff;
-    }
-    .cta {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: linear-gradient(90deg, #00aaff, #0077cc);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: transform 0.3s;
-    }
-    .cta:hover { transform: scale(1.05); }
-
-    section {
-      padding: 50px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .cards, .grid, .directory {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .card, .grid-item, .role-card {
-      background: #1b263b;
-      padding: 20px;
-      border-radius: 10px;
-      flex: 1;
-      min-width: 200px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover, .grid-item:hover, .role-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      font-size: 3.5rem;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      line-height: 1.1;
     }
 
-    footer {
-      background: #1b263b;
-      text-align: center;
-      padding: 30px;
-      margin-top: 40px;
-      font-size: 1rem;
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 30px;
     }
-    .footer-links {
+
+    .cta-group {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
       gap: 15px;
-      margin-top: 10px;
+      justify-content: center;
     }
-    .footer-links a {
-      color: #e0e1dd;
+
+    .cta {
+      padding: 14px 32px;
+      background: var(--primary);
+      color: white;
       text-decoration: none;
-      transition: color 0.3s;
+      border-radius: 50px;
       font-weight: 600;
-    }
-    .footer-links a:hover { color: #00aaff; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      transition: 0.3s;
+      box-shadow: 0 10px 20px rgba(0, 97, 255, 0.2);
     }
 
+    .cta:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 97, 255, 0.3); }
+
+    /* --- Sections --- */
+    section {
+      padding: 80px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 { font-size: 2.5rem; }
+
+    /* --- Grid System --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--bg-light);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      background: var(--white);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+      border-color: var(--primary);
+    }
+
+    .card h3 { margin-bottom: 15px; color: var(--primary); }
+
+    /* --- Specialized Styling --- */
     .hidden { display: none; }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .hero h1 { font-size: 1.5rem; }
-      .card, .grid-item, .role-card { min-width: 100%; }
+    
+    footer {
+      background: var(--secondary);
+      color: #fff;
+      padding: 60px 5%;
+      text-align: center;
     }
-    @media (max-width: 480px) {
-      .hero { padding: 60px 10px; }
-      .cta { padding: 10px 20px; font-size: 0.9rem; }
+
+    .footer-links a {
+      color: #94a3b8;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .nav-links { display: none; } /* Add a hamburger menu for mobile in production */
     }
   </style>
 </head>
 <body>
+
   <header>
     <nav class="navbar">
-      <h2>Codian Cloud Technologies</h2>
+      <a onclick="showPage('home')" class="logo">CODIAN.</a>
       <ul class="nav-links">
         <li><a onclick="showPage('home')">Home</a></li>
         <li><a onclick="showPage('services')">Services</a></li>
-        <li><a onclick="showPage('ecosystem')">Specialized Clouds</a></li>
-        <li><a onclick="showPage('roles')">Talent / Roles</a></li>
-        <li><a onclick="showPage('contact')">Contact Us</a></li>
+        <li><a onclick="showPage('ecosystem')">Solutions</a></li>
+        <li><a onclick="showPage('roles')">Global Talent</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Home -->
-  <section id="home" class="hero">
-    <h1>Empowering Enterprise Agility through Salesforce Excellence</h1>
-    <p>Codian Cloud Technologies delivers scalable, multi-cloud solutions for modern enterprises.</p>
-    <a onclick="showPage('contact')" class="cta">Get Started</a>
-  </section>
-  <section id="home-why">
-    <h2>Why Choose Us</h2>
-    <div class="cards">
-      <div class="card">Flexible Engagement: Full-time</div>
-      <div class="card">Contract</div>
-      <div class="card">Freelance</div>
-    </div>
-  </section>
+  <main id="home">
+    <section class="hero">
+      <h1>Accelerate Your Digital Transformation</h1>
+      <p>Premier Salesforce implementation and multi-cloud strategy for global enterprises.</p>
+      <div class="cta-group">
+        <a onclick="showPage('contact')" class="cta">Work With Us</a>
+      </div>
+    </section>
 
-  <!-- Services -->
+    <section>
+      <div class="section-title">
+        <h2>Global Engagement Models</h2>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Full-Time Excellence</h3>
+          <p>Dedicated teams integrated into your corporate structure for long-term project stability.</p>
+        </div>
+        <div class="card">
+          <h3>Agile Contracting</h3>
+          <p>Scale your workforce up or down with specialized Salesforce consultants on-demand.</p>
+        </div>
+        <div class="card">
+          <h3>Freelance Network</h3>
+          <p>Access niche expertise for specific, high-impact technical challenges.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <section id="services" class="hidden">
-    <h2>Our Services</h2>
-    <ul>
-      <li><strong>Implementation:</strong> End-to-end Salesforce setup</li>
-      <li><strong>Customization:</strong> Tailored workflows, Lightning components</li>
-      <li><strong>Integration:</strong> SAP, Payment Gateways, CTI, SMS</li>
-      <li><strong>Managed Support:</strong> Ongoing monitoring, error handling</li>
-    </ul>
-  </section>
-
-  <!-- Ecosystem -->
-  <section id="ecosystem" class="hidden">
-    <h2>Specialized Clouds</h2>
+    <div class="section-title">
+      <h2>Professional Services</h2>
+    </div>
     <div class="grid">
-      <div class="grid-item"><h3>Core Clouds</h3><p>Sales, Service, Experience, Marketing, Commerce</p></div>
-      <div class="grid-item"><h3>Industry Clouds</h3><p>Financial Services, Health Cloud, Education, Nonprofit</p></div>
-      <div class="grid-item"><h3>Technical Clouds</h3><p>CPQ, OmniStudio, nCino, Automation QA</p></div>
+      <div class="card">
+        <h3>Enterprise Implementation</h3>
+        <p>End-to-end Salesforce setup with a focus on scalability and security.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Development</h3>
+        <p>Expert LWC development, Apex triggers, and tailored workflow automation.</p>
+      </div>
+      <div class="card">
+        <h3>Systems Integration</h3>
+        <p>Seamlessly connect Salesforce with SAP, Oracle, and third-party APIs.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Roles -->
+  <section id="ecosystem" class="hidden">
+    <div class="section-title">
+      <h2>Cloud Ecosystems</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Core & Growth</h3>
+        <p>Sales, Service, Marketing, and Commerce Cloud mastery.</p>
+      </div>
+      <div class="card">
+        <h3>Vertical Solutions</h3>
+        <p>Financial Services, Health Cloud, and Education specialized architectures.</p>
+      </div>
+      <div class="card">
+        <h3>Deep Tech</h3>
+        <p>CPQ, OmniStudio, and nCino implementation experts.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="roles" class="hidden">
-    <h2>Available Roles</h2>
-    <div class="directory">
-      <div class="role-card">Architects</div>
-      <div class="role-card">Developers</div>
-      <div class="role-card">Admins</div>
-      <div class="role-card">Business Analysts</div>
-      <div class="role-card">Project Managers</div>
+    <div class="section-title">
+      <h2>Our Talent Directory</h2>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Architects</h3></div>
+      <div class="card"><h3>Developers</h3></div>
+      <div class="card"><h3>Admins</h3></div>
+      <div class="card"><h3>Business Analysts</h3></div>
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="hidden">
-    <h2>Contact Us</h2>
-    <p>Email: info@codiancloudtech.com</p>
-    <p>Phone: +91 93078 22237</p>
+    <div class="section-title">
+      <h2>Let's Build the Future</h2>
+      <p>Connect with our global offices to start your journey.</p>
+      <div style="margin-top: 30px;">
+        <p><strong>Email:</strong> info@codiancloudtech.com</p>
+        <p><strong>HQ:</strong> +91 93078 22237</p>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <div class="footer-links">
+    <p>&copy; 2026 Codian Cloud Technologies. All rights reserved.</p>
+    <div class="footer-links" style="margin-top: 20px;">
       <a onclick="showPage('services')">Services</a>
-      <a onclick="showPage('ecosystem')">Clouds</a>
-      <a onclick="showPage('roles')">Roles</a>
-      <a onclick="showPage('contact')">Contact</a>
+      <a onclick="showPage('ecosystem')">Solutions</a>
+      <a onclick="showPage('contact')">Privacy Policy</a>
     </div>
   </footer>
 
-  <!-- External JS -->
-  <script src="script.js"></script>
+  <script>
+    function showPage(pageId) {
+      // Hide all main sections and IDs
+      const sections = ['home', 'services', 'ecosystem', 'roles', 'contact'];
+      sections.forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+      
+      // Show the selected section
+      document.getElementById(pageId).classList.remove('hidden');
+      
+      // Scroll to top
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  </script>
 </body>
 </html>
