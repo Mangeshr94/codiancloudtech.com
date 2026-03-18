@@ -16,10 +16,10 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; color: var(--deep-navy); background-color: var(--white); line-height: 1.6; }
+    body { font-family: 'Inter', sans-serif; color: var(--deep-navy); background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; }
 
-    /* Navigation */
+    /* --- Navigation --- */
     header { position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid var(--border); padding: 1.2rem 5%; }
     .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
     .logo { font-size: 1.1rem; font-weight: 800; color: var(--deep-navy); cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
@@ -31,18 +31,21 @@
 
     .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--deep-navy); background: none; border: none; }
 
-    /* Layout */
-    section { padding: 140px 5% 80px; max-width: 1400px; margin: 0 auto; }
+    /* --- Layout --- */
+    section { padding: 140px 5% 80px; max-width: 1400px; margin: 0 auto; min-height: 80vh; }
     .section-header { text-align: center; margin-bottom: 3rem; }
     .section-header h2 { font-size: 2.5rem; color: var(--deep-navy); margin-bottom: 10px; }
+    .section-header p { color: var(--slate); max-width: 700px; margin: 0 auto; }
     
-    /* Sub-Tabs Styling */
+    /* --- Service Sub-Tabs --- */
     .service-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
     .tab-btn { padding: 12px 24px; border: 1px solid var(--border); background: var(--white); cursor: pointer; font-weight: 600; border-radius: 6px; transition: 0.3s; color: var(--slate); font-size: 0.9rem; }
     .tab-btn.active { background: var(--cobalt); color: var(--white); border-color: var(--cobalt); }
 
+    /* --- Grid & Cards --- */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
     .card { padding: 2.5rem; background: var(--white); border: 1px solid var(--border); border-radius: 12px; transition: 0.4s; }
+    .card:hover { border-color: var(--cobalt); box-shadow: 0 15px 35px rgba(9, 30, 66, 0.06); transform: translateY(-5px); }
     .card h3 { color: var(--cobalt); margin-bottom: 15px; font-size: 1.3rem; }
     
     .sub-section { margin-top: 25px; padding-top: 20px; border-top: 1px solid #f0f0f0; }
@@ -53,16 +56,19 @@
     .tag:hover { border-color: var(--cobalt); color: var(--cobalt); background: #f0f7ff; }
 
     .hidden { display: none; }
-    .btn-primary { padding: 18px 40px; background: var(--cobalt); color: white; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+    .btn-primary { padding: 18px 40px; background: var(--cobalt); color: white; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1rem; }
+    .btn-primary:hover { background: #003db3; }
     
     .contact-link { color: var(--cobalt); text-decoration: none; font-weight: 600; transition: 0.3s; }
+    .contact-link:hover { text-decoration: underline; }
 
     footer { background: var(--deep-navy); color: white; padding: 60px 5% 40px; text-align: center; margin-top: 50px; }
 
+    /* --- Animations --- */
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .fade-in { animation: fadeIn 0.5s ease-out forwards; }
 
-    /* Mobile Nav Fix */
+    /* --- Mobile Responsive --- */
     @media (max-width: 1024px) {
       .menu-toggle { display: block; }
       .nav-links { 
@@ -79,6 +85,7 @@
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       }
       .nav-links.active { display: flex; }
+      .section-header h2 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -91,7 +98,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a onclick="showPage('home')">Home</a></li>
         <li><a onclick="showPage('services')">Services</a></li>
-        <li><a onclick="showPage('ecosystem')">Cloud Expertise</a></li>
+        <li><a onclick="showPage('ecosystem')">Salesforce Cloud Expertise</a></li>
         <li><a onclick="showPage('roles')">Talent Hub</a></li>
         <li><a onclick="showPage('contact')">Contact</a></li>
       </ul>
@@ -99,7 +106,7 @@
   </header>
 
   <main id="home">
-    <section style="text-align: center;">
+    <section style="text-align: center; display: flex; align-items: center; justify-content: center;">
       <div class="fade-in">
         <h1 style="font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; color: var(--deep-navy);">Codian Cloud Technologies</h1>
         <h2 style="font-weight: 400; color: var(--slate); margin-bottom: 2.5rem; max-width: 900px; margin-left: auto; margin-right: auto;">Driving Enterprise Excellence through Salesforce Mastery and Modern IT Innovation</h2>
@@ -111,7 +118,7 @@
   <section id="services" class="hidden">
     <div class="section-header">
       <h2>Professional Services</h2>
-      <p>Comprehensive technical solutions for global business scalability.</p>
+      <p>Comprehensive technical solutions designed for global business scalability.</p>
     </div>
 
     <div class="service-tabs">
@@ -124,15 +131,15 @@
       <div class="grid">
         <div class="card">
           <h3>Full-Cycle Implementation</h3>
-          <p>Strategic architecture and deployment for complex Salesforce environments.</p>
+          <p>Strategic architecture, governance frameworks, and end-to-end deployment for complex environments.</p>
         </div>
         <div class="card">
           <h3>Custom App Engineering</h3>
-          <p>Bespoke LWC, Apex, and Lightning workflows tailored to unique business logic.</p>
+          <p>Bespoke LWC development, Apex architecture, and complex Lightning flows for unique workflows.</p>
         </div>
         <div class="card">
           <h3>Ecosystem Integration</h3>
-          <p>Connecting Salesforce with SAP, Oracle, Payment Gateways, and CTI tools.</p>
+          <p>Seamlessly connecting Salesforce with SAP, Oracle, Payment Gateways, and CTI systems.</p>
         </div>
       </div>
     </div>
@@ -141,15 +148,15 @@
       <div class="grid">
         <div class="card">
           <h3>Full-Time Roles</h3>
-          <p>Dedicated professionals integrated into your long-term organizational strategy and culture.</p>
+          <p>Permanent staffing solutions for long-term project stability and organizational culture integration.</p>
         </div>
         <div class="card">
           <h3>Contractual Experts</h3>
-          <p>Specialized talent for specific project timelines, ensuring flexibility and rapid deployment.</p>
+          <p>Specialized talent for fixed timelines, allowing your team to scale rapidly for specific project milestones.</p>
         </div>
         <div class="card">
           <h3>Freelance Network</h3>
-          <p>On-demand niche consultants to bridge technical gaps or handle short-term overflows.</p>
+          <p>On-demand niche consultants to bridge technical gaps or provide high-level advisory on a project basis.</p>
         </div>
       </div>
     </div>
@@ -158,15 +165,15 @@
       <div class="grid">
         <div class="card">
           <h3>Corporate Training</h3>
-          <p>Upskilling enterprise teams on Sales, Service, and Marketing clouds.</p>
+          <p>Customized modules designed for enterprise teams to maximize ROI and platform adoption.</p>
         </div>
         <div class="card">
           <h3>Certification Bootcamps</h3>
-          <p>Intensive preparation for Admin, Developer, and Architect certifications.</p>
+          <p>Intensive prep programs for Administrator, Platform Developer, and Architect certifications.</p>
         </div>
         <div class="card">
-          <h3>Custom Workshops</h3>
-          <p>Tailored curriculum focusing on specific organizational processes.</p>
+          <h3>End-User Excellence</h3>
+          <p>Focusing on daily usability for sales and service teams to ensure high data integrity.</p>
         </div>
       </div>
     </div>
@@ -175,7 +182,7 @@
   <section id="ecosystem" class="hidden">
     <div class="section-header">
       <h2>Salesforce Cloud Expertise</h2>
-      <p>Deep domain mastery across the Salesforce multi-cloud ecosystem.</p>
+      <p>Deep domain mastery across the full spectrum of the Salesforce multi-cloud ecosystem.</p>
     </div>
     <div class="grid">
       <div class="card">
@@ -251,42 +258,54 @@
       <h2>Connect With Our Team</h2>
       <p>Partner with our advisory team to architect your digital future and redefine enterprise agility.</p>
     </div>
-    <div style="text-align: center; padding: 50px; border: 1px solid var(--border); border-radius: 12px; background: #fbfbfb; max-width: 700px; margin: 0 auto;">
-      <p style="font-size: 1.25rem; margin-bottom: 15px;">
+    <div style="text-align: center; padding: 60px 20px; border: 1px solid var(--border); border-radius: 16px; background: #fbfbfb; max-width: 700px; margin: 0 auto;">
+      <p style="font-size: 1.3rem; margin-bottom: 15px;">
         <strong>Email:</strong> <a href="mailto:info@codiancloudtech.com" class="contact-link">info@codiancloudtech.com</a>
       </p>
-      <p style="font-size: 1.25rem;">
+      <p style="font-size: 1.3rem;">
         <strong>Direct:</strong> <a href="tel:+919307822237" class="contact-link">+91 93078 22237</a>
       </p>
     </div>
   </section>
 
   <footer>
-    <div style="font-weight: 800; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Codian Cloud Technologies</div>
-    <p style="font-size: 0.8rem; color: #7a869a;">&copy; 2026 Codian Cloud Technologies. Delivering Innovation Globally.</p>
+    <div style="font-weight: 800; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-size: 1.2rem;">Codian Cloud Technologies</div>
+    <p style="font-size: 0.85rem; color: #a5adba; margin-bottom: 25px;">Advancing enterprise cloud capabilities through expert engineering and strategic partnerships.</p>
+    <p style="font-size: 0.75rem; color: #7a869a;">&copy; 2026 Codian Cloud Technologies. All rights reserved.</p>
   </footer>
 
   <script>
+    // --- Page Switching ---
     function showPage(pageId) {
       const pages = ['home', 'services', 'ecosystem', 'roles', 'contact'];
       pages.forEach(id => {
-        document.getElementById(id).classList.toggle('hidden', id !== pageId);
+        const el = document.getElementById(id);
+        el.classList.toggle('hidden', id !== pageId);
       });
+      // Ensure mobile menu closes after selection
       document.getElementById('navLinks').classList.remove('active');
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
+    // --- Service Sub-Tab Switching ---
     function switchService(evt, serviceName) {
+      // Hide all service contents
       const contents = document.getElementsByClassName("service-content");
       for (let content of contents) content.classList.add("hidden");
+
+      // Remove active class from all tab buttons
       const tabs = document.getElementsByClassName("tab-btn");
       for (let tab of tabs) tab.classList.remove("active");
+
+      // Show current tab and set button to active
       document.getElementById(serviceName).classList.remove("hidden");
       evt.currentTarget.classList.add("active");
     }
 
+    // --- Mobile Menu Toggle ---
     function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
     }
   </script>
 </body>
