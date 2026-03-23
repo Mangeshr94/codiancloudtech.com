@@ -47,8 +47,8 @@
 
     .menu-btn { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--deep-navy); }
 
-    .nav-links { list-style: none; display: flex; gap: 2rem; }
-    .nav-links a { text-decoration: none; color: var(--slate); font-weight: 600; font-size: 0.8rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; position: relative;}
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+    .nav-links a { text-decoration: none; color: var(--slate); font-weight: 600; font-size: 0.75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; position: relative;}
     .nav-links a:hover, .nav-links a.active { color: var(--cobalt); }
     .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--cobalt); transition: 0.3s; }
     .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
@@ -58,7 +58,7 @@
     .section-header h2 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 15px; letter-spacing: -1px; }
     .section-header p { color: var(--slate); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .card { 
       padding: 2.5rem; 
       background: var(--white); 
@@ -145,6 +145,7 @@
         <li><a onclick="navigateTo('services')" id="link-services">Services</a></li>
         <li><a onclick="navigateTo('ecosystem')" id="link-ecosystem">Expertise</a></li>
         <li><a onclick="navigateTo('roles')" id="link-roles">Talent Hub</a></li>
+        <li><a onclick="navigateTo('training')" id="link-training">Training</a></li>
         <li><a onclick="navigateTo('contact')" id="link-contact">Contact</a></li>
       </ul>
     </nav>
@@ -161,6 +162,35 @@
       </div>
     </section>
   </main>
+
+  <section id="training" class="hidden fade-in">
+    <div class="section-header">
+      <h2>Salesforce Training</h2>
+      <p>Master the world's #1 CRM with our specialized certification programs.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Salesforce Administrator</h3>
+        <p style="color: var(--slate); margin-bottom: 20px;">Comprehensive training covering configuration, security, and data management for the Admin certification.</p>
+        <div class="tag">Foundation</div>
+      </div>
+      <div class="card">
+        <h3>Salesforce Developer</h3>
+        <p style="color: var(--slate); margin-bottom: 20px;">Deep dive into Apex, triggers, and declarative logic to build robust, scalable business solutions.</p>
+        <div class="tag">Technical Mastery</div>
+      </div>
+      <div class="card">
+        <h3>Lightning Web Components</h3>
+        <p style="color: var(--slate); margin-bottom: 20px;">Modern UI development using the latest web standards on the Salesforce platform.</p>
+        <div class="tag">Modern Stack</div>
+      </div>
+      <div class="card">
+        <h3>Salesforce Integration</h3>
+        <p style="color: var(--slate); margin-bottom: 20px;">Master REST/SOAP APIs and middleware to connect Salesforce with any third-party system.</p>
+        <div class="tag">Advanced Engineering</div>
+      </div>
+    </div>
+  </section>
 
   <section id="ecosystem" class="hidden fade-in">
     <div class="section-header">
@@ -244,7 +274,10 @@
     <div class="grid">
       <div class="card"><h3>Implementation</h3><p>Architecture and strategic deployment of Salesforce and Cloud solutions.</p></div>
       <div class="card"><h3>Resource Hiring</h3><p>Full-time, contract, and freelance staffing with pre-vetted experts.</p></div>
-      <div class="card"><h3>Training</h3><p>Corporate workshops and certification preparation for your internal teams.</p></div>
+      <div class="card" onclick="navigateTo('training')" style="cursor: pointer;">
+        <h3>Training</h3>
+        <p>Corporate workshops and certification preparation for your internal teams. <strong>View Courses →</strong></p>
+      </div>
     </div>
   </section>
 
@@ -278,7 +311,7 @@
     }
 
     function showPage(pageId) {
-      const pages = ['home', 'services', 'ecosystem', 'roles', 'contact'];
+      const pages = ['home', 'services', 'ecosystem', 'roles', 'training', 'contact'];
       pages.forEach(id => {
         const section = document.getElementById(id);
         const link = document.getElementById('link-' + id);
@@ -301,7 +334,7 @@
       document.getElementById('email-display').innerHTML = `<a href="mailto:${u}@${d}" style="text-decoration:none; color:inherit;">${u}@${d}</a>`;
 
       const currentHash = window.location.hash.replace('#', '');
-      const validPages = ['home', 'services', 'ecosystem', 'roles', 'contact'];
+      const validPages = ['home', 'services', 'ecosystem', 'roles', 'training', 'contact'];
       if (currentHash && validPages.includes(currentHash)) {
         showPage(currentHash);
       } else {
