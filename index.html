@@ -19,7 +19,6 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
-    /* Premium Mesh Gradient Background */
     body { 
       font-family: 'Inter', sans-serif; 
       color: var(--deep-navy); 
@@ -34,7 +33,6 @@
 
     h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; }
 
-    /* Header Glassmorphism */
     header { 
       position: fixed; width: 100%; top: 0; 
       background: var(--glass); 
@@ -52,8 +50,6 @@
     .nav-links { list-style: none; display: flex; gap: 2rem; }
     .nav-links a { text-decoration: none; color: var(--slate); font-weight: 600; font-size: 0.8rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; position: relative;}
     .nav-links a:hover, .nav-links a.active { color: var(--cobalt); }
-    
-    /* Underline animation for nav links */
     .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--cobalt); transition: 0.3s; }
     .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
@@ -62,7 +58,6 @@
     .section-header h2 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 15px; letter-spacing: -1px; }
     .section-header p { color: var(--slate); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
-    /* Premium Grid and Cards */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
     .card { 
       padding: 2.5rem; 
@@ -79,10 +74,8 @@
       box-shadow: var(--shadow-lg); 
     }
     .card h3 { color: var(--cobalt); margin-bottom: 15px; font-size: 1.25rem; font-weight: 700; }
-    
     .sub-section h4 { font-size: 0.8rem; text-transform: uppercase; color: var(--slate); margin-bottom: 15px; border-bottom: 1px solid #f0f1f3; padding-bottom: 8px; letter-spacing: 0.5px; }
 
-    /* Tag Styling */
     .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .tag { 
       background: #f1f3f8; 
@@ -96,7 +89,6 @@
     }
     .tag:hover { border-color: var(--cobalt); color: var(--cobalt); background: #f0f7ff; }
 
-    /* Premium Buttons */
     .btn-primary { 
       padding: 16px 40px; 
       background: var(--cobalt); 
@@ -120,7 +112,6 @@
     .fade-in { animation: fadeIn 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Premium Footer */
     footer { 
       background: var(--deep-navy); 
       color: rgba(255,255,255,0.7); 
@@ -129,9 +120,7 @@
       border-top-left-radius: 40px;
       border-top-right-radius: 40px;
     }
-    footer p { font-size: 0.9rem; }
 
-    /* Mobile Responsive Overrides */
     @media (max-width: 992px) {
       .menu-btn { display: block; }
       .nav-links { 
@@ -141,7 +130,7 @@
         text-align: center; 
       }
       .nav-links.active { display: flex; }
-      .nav-links a::after { display: none; } /* Disable underline animations on mobile menu for neatness */
+      .nav-links a::after { display: none; }
     }
   </style>
 </head>
@@ -256,20 +245,19 @@
     </div>
   </section>
 
-<div class="section-header">
-    <h2>Contact Us</h2>
-    <p>Start your transformation journey today.</p>
-  </div>
-  <div class="card" style="max-width: 500px; margin: 0 auto; text-align: center; border-radius: 32px;">
-    <h3 style="margin-bottom: 30px;">Let's Connect</h3>
-    
-    <p style="margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; color: var(--slate);">Email</p>
-    <p id="email-display" style="font-size: 1.25rem; color: var(--cobalt); font-weight: 700; margin-bottom: 25px;"></p>
-    
-    <p style="margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; color: var(--slate);">Contact</p>
-    <a href="tel:+919307822237" class="btn-primary" style="margin-top: 5px;">+91 93078 22237</a>
-  </div>
-</section>
+  <section id="contact" class="hidden fade-in">
+    <div class="section-header">
+      <h2>Contact Us</h2>
+      <p>Start your transformation journey today.</p>
+    </div>
+    <div class="card" style="max-width: 500px; margin: 0 auto; text-align: center; border-radius: 32px;">
+      <h3 style="margin-bottom: 30px;">Let's Connect</h3>
+      <p style="margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; color: var(--slate);">Email</p>
+      <p id="email-display" style="font-size: 1.25rem; color: var(--cobalt); font-weight: 700; margin-bottom: 25px;"></p>
+      <p style="margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; color: var(--slate);">Contact</p>
+      <a href="tel:+919307822237" class="btn-primary" style="margin-top: 5px;">+91 93078 22237</a>
+    </div>
+  </section>
 
   <footer>
     <p style="font-weight: 800; color: white; margin-bottom: 10px; font-family: 'Plus Jakarta Sans'; letter-spacing: 1px;">CODIAN CLOUD TECHNOLOGIES</p>
@@ -288,11 +276,9 @@
 
     function showPage(pageId) {
       const pages = ['home', 'services', 'ecosystem', 'roles', 'contact'];
-      
       pages.forEach(id => {
         const section = document.getElementById(id);
         const link = document.getElementById('link-' + id);
-        
         if (id === pageId) {
           section.classList.remove('hidden');
           if(link) link.classList.add('active');
@@ -301,7 +287,6 @@
           if(link) link.classList.remove('active');
         }
       });
-      
       document.getElementById('mobileMenu').classList.remove('active');
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
@@ -312,7 +297,6 @@
 
       const currentHash = window.location.hash.replace('#', '');
       const validPages = ['home', 'services', 'ecosystem', 'roles', 'contact'];
-      
       if (currentHash && validPages.includes(currentHash)) {
         showPage(currentHash);
       } else {
