@@ -16,54 +16,84 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; color: var(--deep-navy); background-color: var(--white); line-height: 1.6; }
+    body { font-family: 'Inter', sans-serif; color: var(--deep-navy); background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
     h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; }
 
     /* Navigation */
-    header { position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.9); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid var(--border); padding: 1rem 5%; }
+    header { 
+      position: fixed; width: 100%; top: 0; 
+      background: rgba(255,255,255,0.95); 
+      backdrop-filter: blur(15px); z-index: 1000; 
+      border-bottom: 1px solid var(--border); 
+      padding: 1rem 5%; 
+    }
     .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
-    .logo { font-size: 1.1rem; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
-    .logo span { color: var(--cobalt); }
     
-    .nav-links { list-style: none; display: flex; gap: 2rem; }
-    .nav-links a { text-decoration: none; color: var(--slate); font-weight: 600; font-size: 0.8rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+    .logo { font-size: 1rem; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
+    .logo span { color: var(--cobalt); }
+
+    /* Mobile Menu Toggle */
+    .menu-btn { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--deep-navy); }
+
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+    .nav-links a { text-decoration: none; color: var(--slate); font-weight: 600; font-size: 0.75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
     .nav-links a:hover, .nav-links a.active { color: var(--cobalt); }
 
-    /* Layout */
-    section { padding: 140px 5% 80px; max-width: 1400px; margin: 0 auto; min-height: 85vh; }
-    .section-header { text-align: center; margin-bottom: 3.5rem; }
-    .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; letter-spacing: -1px; }
+    /* Hero Section Responsive */
+    section { padding: 100px 6% 60px; max-width: 1400px; margin: 0 auto; min-height: 80vh; }
+    .hero { padding-top: 140px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .hero h1 { font-size: clamp(2rem, 8vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; }
+    .hero p { font-size: clamp(1rem, 3vw, 1.2rem); color: var(--slate); max-width: 800px; margin-bottom: 2rem; }
 
-    /* Tabs */
-    .tab-bar { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
-    .tab-btn { padding: 12px 24px; border: 1px solid #ddd; background: white; border-radius: 8px; cursor: pointer; font-weight: 600; transition: 0.3s; color: var(--slate); }
-    .tab-btn.active { background: var(--cobalt); color: white; border-color: var(--cobalt); box-shadow: 0 4px 12px rgba(0,82,204,0.2); }
+    /* Grid Adjustments */
+    .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .section-header h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 10px; }
 
-    /* Grid & Cards */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-    .card { padding: 2.5rem; background: var(--white); border: 1px solid var(--border); border-radius: 20px; transition: 0.4s; }
-    .card:hover { transform: translateY(-8px); border-color: var(--cobalt); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
-    .card h3 { color: var(--cobalt); margin-bottom: 15px; font-size: 1.25rem; }
+    .tab-bar { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; }
+    .tab-btn { padding: 10px 18px; border: 1px solid #ddd; background: white; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.85rem; }
+    .tab-btn.active { background: var(--cobalt); color: white; border-color: var(--cobalt); }
 
-    .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
-    .tag { background: #f0f7ff; padding: 6px 14px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: var(--cobalt); border: 1px solid rgba(0,82,204,0.1); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .card { padding: 2rem; background: var(--white); border: 1px solid var(--border); border-radius: 16px; transition: 0.4s; }
+    .card h3 { color: var(--cobalt); margin-bottom: 12px; font-size: 1.2rem; }
 
-    .btn-primary { padding: 16px 40px; background: var(--cobalt); color: white; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block; }
-    .btn-primary:hover { background: var(--deep-navy); transform: scale(1.02); }
+    .tag-container { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tag { background: #f0f7ff; padding: 5px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; color: var(--cobalt); border: 1px solid rgba(0,82,204,0.1); }
+
+    .btn-primary { padding: 14px 32px; background: var(--cobalt); color: white; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
 
     .hidden { display: none; }
-    .fade-in { animation: fadeIn 0.7s ease-out forwards; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-    footer { background: var(--deep-navy); color: rgba(255,255,255,0.7); padding: 50px 5% 30px; text-align: center; }
+    footer { background: var(--deep-navy); color: rgba(255,255,255,0.7); padding: 40px 5%; text-align: center; font-size: 0.85rem; }
+
+    /* Tablet & Mobile Specific Queries */
+    @media (max-width: 992px) {
+      .menu-btn { display: block; }
+      .nav-links { 
+        display: none; position: absolute; top: 100%; left: 0; width: 100%; 
+        background: white; flex-direction: column; padding: 20px; 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; gap: 1rem;
+      }
+      .nav-links.active { display: flex; }
+      .logo { font-size: 0.9rem; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding-top: 100px; }
+      .card { padding: 1.5rem; }
+      .tab-btn { width: 100%; } /* Stacks buttons on very small phones */
+    }
   </style>
 </head>
 <body>
 
   <header>
     <nav class="navbar">
-      <div class="logo" onclick="showPage('home')">Codian <span>Cloud</span> <span>Technologies</span></div>
-      <ul class="nav-links">
+      <div class="logo" onclick="showPage('home')">Codian <span>Cloud</span> Technologies</div>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="mobileMenu">
         <li><a onclick="showPage('home')" id="link-home">Home</a></li>
         <li><a onclick="showPage('services')" id="link-services">Services</a></li>
         <li><a onclick="showPage('ecosystem')" id="link-ecosystem">Expertise</a></li>
@@ -74,10 +104,10 @@
   </header>
 
   <main id="home" class="fade-in">
-    <section style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-      <span style="color: var(--cobalt); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1rem;">Enterprise Cloud Partners</span>
-      <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 2rem;">Innovation Powered by <br>Salesforce Mastery</h1>
-      <p style="font-size: 1.25rem; color: var(--slate); max-width: 800px; margin-bottom: 2.5rem;">We provide full-time, contract, and freelance experts to architect, implement, and support your entire multi-cloud ecosystem.</p>
+    <section class="hero">
+      <span style="color: var(--cobalt); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 0.5rem;">Enterprise Cloud Partners</span>
+      <h1>Innovation Powered by <br>Salesforce Mastery</h1>
+      <p>We provide full-time, contract, and freelance experts to architect, implement, and support your entire multi-cloud ecosystem.</p>
       <button class="btn-primary" onclick="showPage('contact')">Partner With Us</button>
     </section>
   </main>
@@ -85,57 +115,57 @@
   <section id="services" class="hidden fade-in">
     <div class="section-header">
       <h2>Professional Services</h2>
-      <p>Flexible engagement models designed for rapid business scaling.</p>
+      <p>Flexible models designed for rapid scaling.</p>
     </div>
     <div class="tab-bar">
-      <button class="tab-btn active" onclick="switchService(event, 'serv-solutions')">Salesforce Solutions</button>
-      <button class="tab-btn" onclick="switchService(event, 'serv-hiring')">Resource Hiring</button>
-      <button class="tab-btn" onclick="switchService(event, 'serv-training')">Salesforce Training</button>
+      <button class="tab-btn active" onclick="switchService(event, 'serv-solutions')">Solutions</button>
+      <button class="tab-btn" onclick="switchService(event, 'serv-hiring')">Hiring</button>
+      <button class="tab-btn" onclick="switchService(event, 'serv-training')">Training</button>
     </div>
 
     <div id="serv-solutions" class="service-content grid">
-      <div class="card"><h3>Implementation</h3><p>Comprehensive setup, data migration, and initial configuration of your Salesforce environment.</p></div>
-      <div class="card"><h3>Custom Engineering</h3><p>Building tailored Apex, LWC, and complex flows to match your specific business logic.</p></div>
-      <div class="card"><h3>Automation QA</h3><p>Specialized testing for Salesforce to ensure every deployment is bug-free and efficient.</p></div>
+      <div class="card"><h3>Implementation</h3><p>Setup, migration, and configuration of your Salesforce environment.</p></div>
+      <div class="card"><h3>Custom Engineering</h3><p>Apex, LWC, and complex flows matched to your business logic.</p></div>
+      <div class="card"><h3>Automation QA</h3><p>Specialized testing for Salesforce ensuring bug-free deployments.</p></div>
     </div>
 
     <div id="serv-hiring" class="service-content grid hidden">
-      <div class="card"><h3>Full-Time Roles</h3><p>Dedicated professionals who become a permanent part of your organization's success.</p></div>
-      <div class="card"><h3>Contractual Experts</h3><p>High-level consultants for specific project timelines or technical transitions.</p></div>
-      <div class="card"><h3>Freelance Network</h3><p>On-demand specialized talent to bridge immediate gaps in your development cycle.</p></div>
+      <div class="card"><h3>Full-Time</h3><p>Permanent experts for your organization's long-term success.</p></div>
+      <div class="card"><h3>Contractual</h3><p>High-level consultants for specific project timelines.</p></div>
+      <div class="card"><h3>Freelance</h3><p>On-demand talent to bridge immediate development gaps.</p></div>
     </div>
 
     <div id="serv-training" class="service-content grid hidden">
-      <div class="card"><h3>Corporate Workshops</h3><p>Upskilling your existing team on specific clouds like Marketing or Financial Services Cloud.</p></div>
-      <div class="card"><h3>Certification Prep</h3><p>Intensive bootcamps for Admin, Platform App Builder, and Consultant certifications.</p></div>
-      <div class="card"><h3>End-User Adoption</h3><p>Custom training programs to ensure your staff maximizes their use of the Salesforce platform.</p></div>
+      <div class="card"><h3>Workshops</h3><p>Upskilling teams on Marketing or Financial Services Clouds.</p></div>
+      <div class="card"><h3>Cert Prep</h3><p>Bootcamps for Admin, App Builder, and Consultant certs.</p></div>
+      <div class="card"><h3>Adoption</h3><p>Ensuring staff maximizes the use of the Salesforce platform.</p></div>
     </div>
   </section>
 
   <section id="ecosystem" class="hidden fade-in">
     <div class="section-header">
       <h2>Cloud Expertise</h2>
-      <p>Domain mastery across the multi-cloud Salesforce landscape.</p>
+      <p>Mastery across the multi-cloud landscape.</p>
     </div>
     <div class="grid">
       <div class="card">
         <h3>Primary Clouds</h3>
         <div class="tag-container">
-          <span class="tag">Sales Cloud</span><span class="tag">Service Cloud</span><span class="tag">Marketing Cloud</span>
-          <span class="tag">Experience Cloud</span><span class="tag">Commerce Cloud</span>
+          <span class="tag">Sales</span><span class="tag">Service</span><span class="tag">Marketing</span>
+          <span class="tag">Experience</span><span class="tag">Commerce</span>
         </div>
       </div>
       <div class="card">
-        <h3>Industry Specific</h3>
+        <h3>Industry</h3>
         <div class="tag-container">
-          <span class="tag">Financial Services Cloud</span><span class="tag">Health Cloud</span><span class="tag">Education Cloud</span>
-          <span class="tag">Nonprofit Cloud</span><span class="tag">nCino</span>
+          <span class="tag">FSC</span><span class="tag">Health Cloud</span><span class="tag">Nonprofit</span>
+          <span class="tag">Education</span><span class="tag">nCino</span>
         </div>
       </div>
       <div class="card">
         <h3>Technical Focus</h3>
         <div class="tag-container">
-          <span class="tag">CPQ</span><span class="tag">OmniStudio</span><span class="tag">Revenue Cloud</span>
+          <span class="tag">CPQ</span><span class="tag">OmniStudio</span><span class="tag">Revenue</span>
           <span class="tag">FSL</span><span class="tag">MuleSoft</span>
         </div>
       </div>
@@ -144,26 +174,26 @@
 
   <section id="roles" class="hidden fade-in">
     <div class="section-header">
-      <h2>Talent Directory</h2>
-      <p>Pre-vetted experts ready to integrate seamlessly with your team.</p>
+      <h2>Talent Hub</h2>
+      <p>Pre-vetted experts ready for seamless integration.</p>
     </div>
     <div class="grid">
       <div class="card">
-        <h3>Architecture & Strategy</h3>
+        <h3>Architecture</h3>
         <div class="tag-container">
-          <span class="tag">Solution Architects</span><span class="tag">Technical Architects</span><span class="tag">Consultants</span>
+          <span class="tag">Solution Architects</span><span class="tag">Technical Architects</span>
         </div>
       </div>
       <div class="card">
-        <h3>Development & Admin</h3>
+        <h3>Development</h3>
         <div class="tag-container">
-          <span class="tag">Apex Developers</span><span class="tag">LWC Specialists</span><span class="tag">Salesforce Admins</span>
+          <span class="tag">Apex Developers</span><span class="tag">LWC Specialists</span><span class="tag">Admins</span>
         </div>
       </div>
       <div class="card">
-        <h3>Execution & Quality</h3>
+        <h3>Analysis & QA</h3>
         <div class="tag-container">
-          <span class="tag">Project Managers</span><span class="tag">Business Analysts</span><span class="tag">QA Engineers</span>
+          <span class="tag">Project Managers</span><span class="tag">BAs</span><span class="tag">QA Engineers</span>
         </div>
       </div>
     </div>
@@ -172,24 +202,28 @@
   <section id="contact" class="hidden fade-in">
     <div class="section-header">
       <h2>Contact Us</h2>
-      <p>Reach out to start your digital transformation journey.</p>
+      <p>Start your digital transformation journey.</p>
     </div>
-    <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
-      <h3 style="margin-bottom: 25px;">Ready to Start?</h3>
-      <p style="margin-bottom: 10px; font-weight: 600;">Email us at:</p>
-      <p id="email-display" style="font-size: 1.2rem; color: var(--cobalt); font-weight: 700; margin-bottom: 30px;"></p>
-      
-      <p style="margin-bottom: 10px; font-weight: 600;">Call us directly:</p>
-      <a href="tel:+919307822237" class="btn-primary">Call: +91 93078 22237</a>
+    <div class="card" style="max-width: 500px; margin: 0 auto; text-align: center;">
+      <h3 style="margin-bottom: 20px;">Ready to Start?</h3>
+      <p style="margin-bottom: 5px; font-weight: 600; font-size: 0.9rem;">Email us:</p>
+      <p id="email-display" style="font-size: 1.1rem; color: var(--cobalt); font-weight: 700; margin-bottom: 25px; word-break: break-all;"></p>
+      <p style="margin-bottom: 5px; font-weight: 600; font-size: 0.9rem;">Call directly:</p>
+      <a href="tel:+919307822237" class="btn-primary" style="text-decoration: none; display: inline-block;">+91 93078 22237</a>
     </div>
   </section>
 
   <footer>
-    <p style="font-weight: 800; color: white; margin-bottom: 10px;">CODIAN CLOUD TECHNOLOGIES</p>
-    <p>&copy; 2026 Delivering Enterprise Innovation. All rights reserved.</p>
+    <p style="font-weight: 800; color: white; margin-bottom: 5px; letter-spacing: 1px;">CODIAN CLOUD TECHNOLOGIES</p>
+    <p>&copy; 2026 Innovation Globally. All rights reserved.</p>
   </footer>
 
   <script>
+    // MOBILE MENU TOGGLE
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+
     // PAGE NAVIGATION
     function showPage(pageId) {
       const pages = ['home', 'services', 'ecosystem', 'roles', 'contact'];
@@ -204,26 +238,24 @@
           if(link) link.classList.remove('active');
         }
       });
+      // Close mobile menu on select
+      document.getElementById('mobileMenu').classList.remove('active');
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    // SUB-TABS LOGIC
+    // SUB-TABS
     function switchService(evt, serviceName) {
       const contents = document.querySelectorAll(".service-content");
       contents.forEach(c => c.classList.add("hidden"));
       const tabs = document.querySelectorAll(".tab-btn");
       tabs.forEach(t => t.classList.remove("active"));
-      
       document.getElementById(serviceName).classList.remove("hidden");
       evt.currentTarget.classList.add("active");
     }
 
-    // EMAIL PROTECTION SCRIPT (Hides email from simple bots)
     window.onload = function() {
-      const user = "info";
-      const domain = "codiancloudtech.com";
-      const display = document.getElementById('email-display');
-      display.innerHTML = `<a href="mailto:${user}@${domain}" style="text-decoration:none; color:inherit;">${user}@${domain}</a>`;
+      const u = "info", d = "codiancloudtech.com";
+      document.getElementById('email-display').innerHTML = `<a href="mailto:${u}@${d}" style="text-decoration:none; color:inherit;">${u}@${d}</a>`;
     };
   </script>
 </body>
