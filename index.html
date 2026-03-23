@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Codian CloudTech | Enterprise Salesforce, Talent & Training</title>
+  <title>Codian Cloud Technologies | Enterprise Salesforce, Talent & Training</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -43,7 +43,6 @@
     }
     .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
     
-    /* BRANDING & LOGO STYLE */
     .logo { 
       font-size: 1.4rem; 
       font-weight: 800; 
@@ -56,7 +55,7 @@
       transition: 0.3s;
     }
     .logo img { 
-      height: 75px; /* Default Desktop */
+      height: 75px; /* Desktop Size */
       width: auto; 
       display: block;
       transition: all 0.3s ease;
@@ -74,7 +73,6 @@
     section { padding: 160px 6% 80px; max-width: 1400px; margin: 0 auto; min-height: 85vh; }
     .section-header { text-align: center; margin-bottom: 4rem; }
     .section-header h2 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 15px; letter-spacing: -1px; }
-    .section-header p { color: var(--slate); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .card { 
@@ -110,12 +108,12 @@
     /* RESPONSIVE LOGO SCALING */
     @media (max-width: 1024px) {
       .logo { font-size: 1.2rem; gap: 10px; }
-      .logo img { height: 60px; }
+      .logo img { height: 60px; } /* Tablet */
     }
     @media (max-width: 768px) {
       .menu-btn { display: block; }
       .logo { font-size: 1.1rem; gap: 8px; }
-      .logo img { height: 50px; }
+      .logo img { height: 50px; } /* Mobile */
       .nav-links { 
         display: none; position: absolute; top: 100%; left: 0; width: 100%; 
         background: var(--white); flex-direction: column; padding: 30px; 
@@ -167,7 +165,6 @@
       <div class="card"><h3>Salesforce Administrator</h3><p style="color: var(--slate);">Comprehensive training covering configuration, security, and data management.</p></div>
       <div class="card"><h3>Salesforce Developer</h3><p style="color: var(--slate);">Deep dive into Apex, triggers, and declarative logic to build robust solutions.</p></div>
       <div class="card"><h3>Lightning Web Components</h3><p style="color: var(--slate);">Modern UI development using the latest web standards on Salesforce.</p></div>
-      <div class="card"><h3>Salesforce Integration</h3><p style="color: var(--slate);">Master REST/SOAP APIs and middleware to connect Salesforce with any system.</p></div>
     </div>
   </section>
 
@@ -180,13 +177,6 @@
           <span class="tag">Sales Cloud</span><span class="tag">Service Cloud</span>
           <span class="tag">Marketing Cloud</span><span class="tag">Commerce Cloud</span>
           <span class="tag">Experience Cloud</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Industry Verticals</h3>
-        <div class="tag-container">
-          <span class="tag">Health Cloud</span><span class="tag">Financial Services Cloud</span>
-          <span class="tag">Nonprofit Cloud</span><span class="tag">Education Cloud</span>
         </div>
       </div>
       <div class="card">
@@ -241,15 +231,13 @@
     <div class="section-header"><h2>Contact Us</h2><p>Start your transformation journey today.</p></div>
     <div class="card" style="max-width: 500px; margin: 0 auto; text-align: center; border-radius: 32px;">
       <h3 style="margin-bottom: 30px;">Let's Connect</h3>
-      <p style="margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; color: var(--slate);">Email</p>
       <p id="email-display" style="font-size: 1.25rem; color: var(--cobalt); font-weight: 700; margin-bottom: 25px;"></p>
-      <p style="margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; color: var(--slate);">Contact</p>
-      <a href="tel:+919307822237" class="btn-primary" style="margin-top: 5px;">+91 93078 22237</a>
+      <a href="tel:+919307822237" class="btn-primary">+91 93078 22237</a>
     </div>
   </section>
 
   <footer>
-    <p style="font-weight: 800; color: white; margin-bottom: 10px; font-family: 'Plus Jakarta Sans'; letter-spacing: 1px;">CODIAN CLOUDTECH</p>
+    <p style="font-weight: 800; color: white; margin-bottom: 10px; font-family: 'Plus Jakarta Sans'; letter-spacing: 1px;">CODIAN CLOUD TECHNOLOGIES</p>
     <p>&copy; 2026 Delivering Innovation. All rights reserved.</p>
   </footer>
 
