@@ -3,290 +3,212 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Codian Cloud Technologies | Enterprise IT & Salesforce Solutions</title>
+  
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <title>Codian Cloud Technologies | Global Salesforce & IT Excellence</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --cobalt: #0052cc;
+      --accent: #00c7ff;
       --deep-navy: #091e42;
-      --slate: #42526e;
-      --bg-silver: #f4f5f7;
-      --border: #dfe1e6;
+      --glass: rgba(255, 255, 255, 0.8);
+      --border: rgba(9, 30, 66, 0.08);
       --white: #ffffff;
+      --shadow: 0 20px 40px rgba(0,0,0,0.05);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; color: var(--deep-navy); background-color: var(--white); line-height: 1.6; }
-    h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; }
+    
+    /* ELEGANT BACKGROUND MESH */
+    body { 
+      font-family: 'Inter', sans-serif; 
+      color: var(--deep-navy); 
+      background: radial-gradient(at 0% 0%, hsla(214,100%,95%,1) 0, transparent 50%), 
+                  radial-gradient(at 100% 100%, hsla(200,100%,90%,1) 0, transparent 50%);
+      background-attachment: fixed;
+      line-height: 1.6; 
+      overflow-x: hidden;
+    }
 
-    /* Navigation */
-    header { position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid var(--border); padding: 1.2rem 5%; }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; }
+
+    /* MODERN NAVIGATION */
+    header { 
+      position: fixed; width: 100%; top: 0; 
+      background: rgba(255,255,255,0.7); 
+      backdrop-filter: blur(20px); 
+      z-index: 1000; 
+      border-bottom: 1px solid var(--border); 
+      padding: 1rem 5%; 
+    }
     .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
-    .logo { font-size: 1.1rem; font-weight: 800; color: var(--deep-navy); cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
-    .logo span { color: var(--cobalt); }
+    .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.5px; cursor: pointer; }
+    .logo span { color: var(--cobalt); background: linear-gradient(90deg, var(--cobalt), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     
-    .nav-links { list-style: none; display: flex; gap: 2rem; }
-    .nav-links a { text-decoration: none; color: var(--slate); font-weight: 600; font-size: 0.8rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-    .nav-links a:hover { color: var(--cobalt); }
+    .nav-links { list-style: none; display: flex; gap: 2.5rem; }
+    .nav-links a { text-decoration: none; color: var(--deep-navy); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.3s; opacity: 0.7; }
+    .nav-links a:hover { opacity: 1; color: var(--cobalt); }
 
-    .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--deep-navy); background: none; border: none; }
-
-    /* Layout */
-    section { padding: 140px 5% 80px; max-width: 1400px; margin: 0 auto; }
-    .section-header { text-align: center; margin-bottom: 3rem; }
-    .section-header h2 { font-size: 2.5rem; color: var(--deep-navy); margin-bottom: 10px; }
+    /* HERO SECTION */
+    .hero { 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      text-align: center; 
+      padding-top: 80px;
+    }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 1.5rem; letter-spacing: -2px; }
     
-    /* Sub-Tabs Styling */
-    .service-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
-    .tab-btn { padding: 12px 24px; border: 1px solid var(--border); background: var(--white); cursor: pointer; font-weight: 600; border-radius: 6px; transition: 0.3s; color: var(--slate); font-size: 0.9rem; }
-    .tab-btn.active { background: var(--cobalt); color: var(--white); border-color: var(--cobalt); }
+    /* ATTRACTIVE CARDS */
+    .card { 
+      padding: 2rem; 
+      background: var(--glass); 
+      border: 1px solid var(--white); 
+      border-radius: 20px; 
+      box-shadow: var(--shadow); 
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+      backdrop-filter: blur(10px);
+    }
+    .card:hover { transform: translateY(-10px); border-color: var(--cobalt); box-shadow: 0 30px 60px rgba(0,82,204,0.1); }
+    .card h3 { color: var(--cobalt); margin-bottom: 1rem; }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
-    .card { padding: 2.5rem; background: var(--white); border: 1px solid var(--border); border-radius: 12px; transition: 0.4s; }
-    .card h3 { color: var(--cobalt); margin-bottom: 15px; font-size: 1.3rem; }
-    
-    .sub-section { margin-top: 25px; padding-top: 20px; border-top: 1px solid #f0f0f0; }
-    .sub-section h4 { font-size: 0.8rem; text-transform: uppercase; color: var(--cobalt); margin-bottom: 15px; letter-spacing: 2px; }
+    /* INTERACTIVE BUTTONS */
+    .btn-primary { 
+      padding: 18px 45px; 
+      background: var(--cobalt); 
+      color: white; 
+      border: none; 
+      border-radius: 50px; 
+      font-weight: 700; 
+      cursor: pointer; 
+      transition: 0.3s; 
+      box-shadow: 0 10px 20px rgba(0,82,204,0.3);
+    }
+    .btn-primary:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,82,204,0.4); }
 
-    .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-    .tag { background: var(--bg-silver); padding: 8px 14px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; color: var(--deep-navy); border: 1px solid transparent; transition: 0.3s; }
-    .tag:hover { border-color: var(--cobalt); color: var(--cobalt); background: #f0f7ff; }
+    /* TABS */
+    .tab-btn { 
+      padding: 10px 25px; 
+      border-radius: 30px; 
+      border: 1px solid var(--border); 
+      background: transparent; 
+      font-weight: 600; 
+      cursor: pointer; 
+      transition: 0.3s; 
+    }
+    .tab-btn.active { background: var(--cobalt); color: white; }
+
+    /* HIDDEN SPAM PROTECTION (Honeypot) */
+    .hp-field { display: none; visibility: hidden; }
 
     .hidden { display: none; }
-    .btn-primary { padding: 18px 40px; background: var(--cobalt); color: white; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; transition: 0.3s; }
-    
-    .contact-link { color: var(--cobalt); text-decoration: none; font-weight: 600; transition: 0.3s; }
+    section { padding: 120px 5% 60px; max-width: 1400px; margin: 0 auto; min-height: 80vh; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
-    footer { background: var(--deep-navy); color: white; padding: 60px 5% 40px; text-align: center; margin-top: 50px; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeInUp 0.8s ease-out forwards; }
 
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-in { animation: fadeIn 0.5s ease-out forwards; }
-
-    /* Mobile Nav Fix */
-    @media (max-width: 1024px) {
-      .menu-toggle { display: block; }
-      .nav-links { 
-        display: none; 
-        flex-direction: column; 
-        position: absolute; 
-        top: 100%; 
-        left: 0; 
-        width: 100%; 
-        background: var(--white); 
-        padding: 30px; 
-        border-bottom: 1px solid var(--border); 
-        text-align: center;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      }
-      .nav-links.active { display: flex; }
-    }
+    footer { background: var(--deep-navy); color: white; padding: 40px; text-align: center; border-radius: 40px 40px 0 0; }
   </style>
 </head>
 <body>
 
   <header>
     <nav class="navbar">
-      <div class="logo" onclick="showPage('home')">Codian <span>Cloud Technologies</span></div>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-      <ul class="nav-links" id="navLinks">
+      <div class="logo" onclick="showPage('home')">CODIAN <span>CLOUD</span></div>
+      <ul class="nav-links">
         <li><a onclick="showPage('home')">Home</a></li>
         <li><a onclick="showPage('services')">Services</a></li>
-        <li><a onclick="showPage('ecosystem')">Cloud Expertise</a></li>
-        <li><a onclick="showPage('roles')">Talent Hub</a></li>
+        <li><a onclick="showPage('ecosystem')">Expertise</a></li>
+        <li><a onclick="showPage('roles')">Talent</a></li>
         <li><a onclick="showPage('contact')">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="home">
-    <section style="text-align: center;">
-      <div class="fade-in">
-        <h1 style="font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; color: var(--deep-navy);">Codian Cloud Technologies</h1>
-        <h2 style="font-weight: 400; color: var(--slate); margin-bottom: 2.5rem; max-width: 900px; margin-left: auto; margin-right: auto;">Driving Enterprise Excellence through Salesforce Mastery and Modern IT Innovation</h2>
-        <button class="btn-primary" onclick="showPage('contact')">Partner With Us</button>
-      </div>
+    <section class="hero fade-in">
+      <span style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: var(--cobalt); font-size: 0.8rem;">Global IT Consulting</span>
+      <h1>Architecting the <br><span>Future of Cloud</span></h1>
+      <p style="font-size: 1.2rem; color: var(--slate); max-width: 700px; margin-bottom: 2rem;">Pre-vetted Salesforce professionals and multi-cloud solutions delivered with enterprise precision.</p>
+      <button class="btn-primary" onclick="showPage('contact')">Connect With Experts</button>
     </section>
   </main>
 
-  <section id="services" class="hidden">
-    <div class="section-header">
-      <h2>Professional Services</h2>
-      <p>Comprehensive technical solutions for global business scalability.</p>
-    </div>
-
-    <div class="service-tabs">
-      <button class="tab-btn active" onclick="switchService(event, 'sf-solutions')">Salesforce Solutions</button>
-      <button class="tab-btn" onclick="switchService(event, 'resource-hiring')">Resource Hiring</button>
-      <button class="tab-btn" onclick="switchService(event, 'sf-training')">Salesforce Training</button>
-    </div>
-
-    <div id="sf-solutions" class="service-content fade-in">
-      <div class="grid">
-        <div class="card">
-          <h3>Full-Cycle Implementation</h3>
-          <p>Strategic architecture and deployment for complex Salesforce environments.</p>
-        </div>
-        <div class="card">
-          <h3>Custom App Engineering</h3>
-          <p>Bespoke LWC, Apex, and Lightning workflows tailored to unique business logic.</p>
-        </div>
-        <div class="card">
-          <h3>Ecosystem Integration</h3>
-          <p>Connecting Salesforce with SAP, Oracle, Payment Gateways, and CTI tools.</p>
-        </div>
+  <section id="services" class="hidden fade-in">
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <h2>Our Core Services</h2>
+      <div style="margin-top: 20px;" class="service-tabs">
+        <button class="tab-btn active" onclick="switchService(event, 'sf-solutions')">Solutions</button>
+        <button class="tab-btn" onclick="switchService(event, 'resource-hiring')">Staffing</button>
       </div>
     </div>
 
-    <div id="resource-hiring" class="service-content hidden fade-in">
-      <div class="grid">
-        <div class="card">
-          <h3>Full-Time Roles</h3>
-          <p>Dedicated professionals integrated into your long-term organizational strategy and culture.</p>
-        </div>
-        <div class="card">
-          <h3>Contractual Experts</h3>
-          <p>Specialized talent for specific project timelines, ensuring flexibility and rapid deployment.</p>
-        </div>
-        <div class="card">
-          <h3>Freelance Network</h3>
-          <p>On-demand niche consultants to bridge technical gaps or handle short-term overflows.</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="sf-training" class="service-content hidden fade-in">
-      <div class="grid">
-        <div class="card">
-          <h3>Corporate Training</h3>
-          <p>Upskilling enterprise teams on Sales, Service, and Marketing clouds.</p>
-        </div>
-        <div class="card">
-          <h3>Certification Bootcamps</h3>
-          <p>Intensive preparation for Admin, Developer, and Architect certifications.</p>
-        </div>
-        <div class="card">
-          <h3>Custom Workshops</h3>
-          <p>Tailored curriculum focusing on specific organizational processes.</p>
-        </div>
-      </div>
+    <div id="sf-solutions" class="service-content grid">
+      <div class="card"><h3>Implementation</h3><p>End-to-end Salesforce setup and data migration.</p></div>
+      <div class="card"><h3>Managed Support</h3><p>24/7 support for your cloud infrastructure.</p></div>
+      <div class="card"><h3>Custom Development</h3><p>LWC, Apex, and customized API integrations.</p></div>
     </div>
   </section>
 
-  <section id="ecosystem" class="hidden">
-    <div class="section-header">
-      <h2>Salesforce Cloud Expertise</h2>
-      <p>Deep domain mastery across the Salesforce multi-cloud ecosystem.</p>
+  <section id="contact" class="hidden fade-in">
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <h2>Secure Partnership</h2>
+      <p>Your data is encrypted and handled by certified professionals.</p>
     </div>
-    <div class="grid">
-      <div class="card">
-        <h3>Core Success Clouds</h3>
-        <div class="tag-container">
-          <span class="tag">Sales Cloud</span><span class="tag">Service Cloud</span>
-          <span class="tag">Marketing Cloud</span><span class="tag">Commerce Cloud</span>
-          <span class="tag">Experience Cloud</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Industry Verticals</h3>
-        <div class="tag-container">
-          <span class="tag">Health Cloud</span><span class="tag">Financial Services Cloud</span>
-          <span class="tag">Nonprofit Cloud</span><span class="tag">Education Cloud</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Revenue & Intelligence</h3>
-        <div class="tag-container">
-          <span class="tag">CPQ & Billing Cloud</span><span class="tag">Revenue Cloud</span>
-          <span class="tag">Tableau</span><span class="tag">MuleSoft</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="roles" class="hidden">
-    <div class="section-header">
-      <h2>Strategic Talent Hub</h2>
-      <p>A global network of certified experts across the modern technology stack.</p>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h3>Salesforce Excellence</h3>
-        <div class="sub-section">
-          <h4>Expert Directory</h4>
-          <div class="tag-container">
-            <span class="tag">Salesforce Architect</span><span class="tag">Salesforce Technical Lead</span>
-            <span class="tag">Salesforce Program Manager</span><span class="tag">Salesforce Developer</span>
-            <span class="tag">Salesforce Consultant</span><span class="tag">Salesforce Business Analyst</span>
-            <span class="tag">Salesforce Administrator</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Enterprise & Engineering</h3>
-        <div class="sub-section">
-          <h4>Modern Technology Stack</h4>
-          <div class="tag-container">
-            <span class="tag">SAP Consultants</span><span class="tag">Java Full Stack</span>
-            <span class="tag">Python / AI / ML</span><span class="tag">Node.js / React</span>
-            <span class="tag">Angular / Vue</span><span class="tag">Mobile (iOS/Android)</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Cloud & Infrastructure</h3>
-        <div class="sub-section">
-          <h4>Scalable Architecture</h4>
-          <div class="tag-container">
-            <span class="tag">AWS Architects</span><span class="tag">Azure / GCP</span>
-            <span class="tag">DevOps / Kubernetes</span><span class="tag">Data Engineering</span>
-            <span class="tag">Cyber Security</span><span class="tag">QA Automation</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="hidden">
-    <div class="section-header">
-      <h2>Connect With Our Team</h2>
-      <p>Partner with our advisory team to architect your digital future and redefine enterprise agility.</p>
-    </div>
-    <div style="text-align: center; padding: 50px; border: 1px solid var(--border); border-radius: 12px; background: #fbfbfb; max-width: 700px; margin: 0 auto;">
-      <p style="font-size: 1.25rem; margin-bottom: 15px;">
-        <strong>Email:</strong> <a href="mailto:info@codiancloudtech.com" class="contact-link">info@codiancloudtech.com</a>
-      </p>
-      <p style="font-size: 1.25rem;">
-        <strong>Direct:</strong> <a href="tel:+919307822237" class="contact-link">+91 93078 22237</a>
-      </p>
+    
+    <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+       <input type="text" class="hp-field" name="robot_check">
+       
+       <p style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">Let's Talk Business</p>
+       <a href="tel:+919307822237" class="btn-primary" style="display: inline-block; text-decoration: none;">Call +91 93078 22237</a>
+       <div style="margin-top: 2rem; opacity: 0.6; font-size: 0.8rem;">
+         <p>Secure Communication Enabled • Certified Salesforce Partners</p>
+       </div>
     </div>
   </section>
 
   <footer>
-    <div style="font-weight: 800; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Codian Cloud Technologies</div>
-    <p style="font-size: 0.8rem; color: #7a869a;">&copy; 2026 Codian Cloud Technologies. Delivering Innovation Globally.</p>
+    <p>&copy; 2026 Codian Cloud Technologies. All Rights Reserved.</p>
   </footer>
 
   <script>
+    // PAGE NAVIGATION LOGIC
     function showPage(pageId) {
       const pages = ['home', 'services', 'ecosystem', 'roles', 'contact'];
       pages.forEach(id => {
-        document.getElementById(id).classList.toggle('hidden', id !== pageId);
+        const el = document.getElementById(id);
+        if(el) el.classList.toggle('hidden', id !== pageId);
       });
-      document.getElementById('navLinks').classList.remove('active');
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
+    // TAB SWITCHER LOGIC
     function switchService(evt, serviceName) {
-      const contents = document.getElementsByClassName("service-content");
-      for (let content of contents) content.classList.add("hidden");
-      const tabs = document.getElementsByClassName("tab-btn");
-      for (let tab of tabs) tab.classList.remove("active");
-      document.getElementById(serviceName).classList.remove("hidden");
+      const contents = document.querySelectorAll(".service-content");
+      contents.forEach(c => c.classList.add("hidden"));
+      const tabs = document.querySelectorAll(".tab-btn");
+      tabs.forEach(t => t.classList.remove("active"));
+      
+      const activeContent = document.getElementById(serviceName);
+      if(activeContent) activeContent.classList.remove("hidden");
       evt.currentTarget.classList.add("active");
     }
 
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
+    // BASIC FORM "SECURITY" MOCKUP
+    function validateForm() {
+      const botField = document.querySelector('input[name="robot_check"]').value;
+      if (botField !== "") {
+        console.warn("Bot detected.");
+        return false;
+      }
+      return true;
     }
   </script>
 </body>
