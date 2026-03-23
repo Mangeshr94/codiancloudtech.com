@@ -3,212 +3,215 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <title>Codian Cloud Technologies | Global Salesforce & IT Excellence</title>
-  
+  <title>Codian Cloud Technologies | Enterprise IT & Salesforce Solutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
   <style>
     :root {
       --cobalt: #0052cc;
       --accent: #00c7ff;
       --deep-navy: #091e42;
-      --glass: rgba(255, 255, 255, 0.8);
-      --border: rgba(9, 30, 66, 0.08);
+      --slate: #42526e;
+      --bg-light: #f4f5f7;
       --white: #ffffff;
-      --shadow: 0 20px 40px rgba(0,0,0,0.05);
+      --glass: rgba(255, 255, 255, 0.9);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    /* ELEGANT BACKGROUND MESH */
-    body { 
-      font-family: 'Inter', sans-serif; 
-      color: var(--deep-navy); 
-      background: radial-gradient(at 0% 0%, hsla(214,100%,95%,1) 0, transparent 50%), 
-                  radial-gradient(at 100% 100%, hsla(200,100%,90%,1) 0, transparent 50%);
-      background-attachment: fixed;
-      line-height: 1.6; 
-      overflow-x: hidden;
-    }
+    body { font-family: 'Inter', sans-serif; color: var(--deep-navy); background-color: var(--white); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; }
 
-    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; }
-
-    /* MODERN NAVIGATION */
-    header { 
-      position: fixed; width: 100%; top: 0; 
-      background: rgba(255,255,255,0.7); 
-      backdrop-filter: blur(20px); 
-      z-index: 1000; 
-      border-bottom: 1px solid var(--border); 
-      padding: 1rem 5%; 
-    }
+    /* Navigation */
+    header { position: fixed; width: 100%; top: 0; background: var(--glass); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 1rem 5%; }
     .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
-    .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.5px; cursor: pointer; }
-    .logo span { color: var(--cobalt); background: linear-gradient(90deg, var(--cobalt), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .logo { font-size: 1.1rem; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+    .logo span { color: var(--cobalt); }
     
-    .nav-links { list-style: none; display: flex; gap: 2.5rem; }
-    .nav-links a { text-decoration: none; color: var(--deep-navy); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.3s; opacity: 0.7; }
-    .nav-links a:hover { opacity: 1; color: var(--cobalt); }
+    .nav-links { list-style: none; display: flex; gap: 2rem; }
+    .nav-links a { text-decoration: none; color: var(--slate); font-weight: 600; font-size: 0.8rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--cobalt); }
 
-    /* HERO SECTION */
-    .hero { 
-      min-height: 100vh; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center; 
-      align-items: center; 
-      text-align: center; 
-      padding-top: 80px;
-    }
-    .hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 1.5rem; letter-spacing: -2px; }
-    
-    /* ATTRACTIVE CARDS */
-    .card { 
-      padding: 2rem; 
-      background: var(--glass); 
-      border: 1px solid var(--white); 
-      border-radius: 20px; 
-      box-shadow: var(--shadow); 
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-      backdrop-filter: blur(10px);
-    }
-    .card:hover { transform: translateY(-10px); border-color: var(--cobalt); box-shadow: 0 30px 60px rgba(0,82,204,0.1); }
-    .card h3 { color: var(--cobalt); margin-bottom: 1rem; }
+    /* Sections */
+    section { padding: 140px 5% 80px; max-width: 1400px; margin: 0 auto; min-height: 90vh; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
 
-    /* INTERACTIVE BUTTONS */
-    .btn-primary { 
-      padding: 18px 45px; 
-      background: var(--cobalt); 
-      color: white; 
-      border: none; 
-      border-radius: 50px; 
-      font-weight: 700; 
-      cursor: pointer; 
-      transition: 0.3s; 
-      box-shadow: 0 10px 20px rgba(0,82,204,0.3);
-    }
-    .btn-primary:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,82,204,0.4); }
+    /* Grid & Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .card { padding: 2.5rem; background: var(--white); border: 1px solid #eee; border-radius: 16px; transition: 0.4s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+    .card:hover { transform: translateY(-5px); border-color: var(--cobalt); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+    .card h3 { color: var(--cobalt); margin-bottom: 15px; }
 
-    /* TABS */
-    .tab-btn { 
-      padding: 10px 25px; 
-      border-radius: 30px; 
-      border: 1px solid var(--border); 
-      background: transparent; 
-      font-weight: 600; 
-      cursor: pointer; 
-      transition: 0.3s; 
-    }
-    .tab-btn.active { background: var(--cobalt); color: white; }
+    /* Tags */
+    .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+    .tag { background: #f0f7ff; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: var(--cobalt); border: 1px solid rgba(0,82,204,0.1); }
 
-    /* HIDDEN SPAM PROTECTION (Honeypot) */
-    .hp-field { display: none; visibility: hidden; }
+    /* Buttons */
+    .btn-primary { padding: 16px 35px; background: var(--cobalt); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+    .btn-primary:hover { background: var(--deep-navy); }
 
     .hidden { display: none; }
-    section { padding: 120px 5% 60px; max-width: 1400px; margin: 0 auto; min-height: 80vh; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+    footer { background: var(--deep-navy); color: white; padding: 40px 5%; text-align: center; margin-top: 50px; }
 
-    footer { background: var(--deep-navy); color: white; padding: 40px; text-align: center; border-radius: 40px 40px 0 0; }
+    /* Service Sub-tabs */
+    .tab-bar { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+    .tab-btn { padding: 10px 20px; border: 1px solid #ddd; background: white; border-radius: 6px; cursor: pointer; font-weight: 600; }
+    .tab-btn.active { background: var(--cobalt); color: white; border-color: var(--cobalt); }
   </style>
 </head>
 <body>
 
   <header>
     <nav class="navbar">
-      <div class="logo" onclick="showPage('home')">CODIAN <span>CLOUD</span></div>
+      <div class="logo" onclick="showPage('home')">Codian <span>Cloud</span></div>
       <ul class="nav-links">
-        <li><a onclick="showPage('home')">Home</a></li>
-        <li><a onclick="showPage('services')">Services</a></li>
-        <li><a onclick="showPage('ecosystem')">Expertise</a></li>
-        <li><a onclick="showPage('roles')">Talent</a></li>
-        <li><a onclick="showPage('contact')">Contact</a></li>
+        <li><a onclick="showPage('home')" id="link-home">Home</a></li>
+        <li><a onclick="showPage('services')" id="link-services">Services</a></li>
+        <li><a onclick="showPage('ecosystem')" id="link-ecosystem">Expertise</a></li>
+        <li><a onclick="showPage('roles')" id="link-roles">Talent Hub</a></li>
+        <li><a onclick="showPage('contact')" id="link-contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main id="home">
-    <section class="hero fade-in">
-      <span style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: var(--cobalt); font-size: 0.8rem;">Global IT Consulting</span>
-      <h1>Architecting the <br><span>Future of Cloud</span></h1>
-      <p style="font-size: 1.2rem; color: var(--slate); max-width: 700px; margin-bottom: 2rem;">Pre-vetted Salesforce professionals and multi-cloud solutions delivered with enterprise precision.</p>
-      <button class="btn-primary" onclick="showPage('contact')">Connect With Experts</button>
+  <main id="home" class="fade-in">
+    <section style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem;">Codian Cloud Technologies</h1>
+      <p style="font-size: 1.2rem; color: var(--slate); max-width: 800px; margin-bottom: 2rem;">Full-time, contract, and freelance Salesforce professionals helping organizations implement, customize, and integrate across the complete ecosystem.</p>
+      <button class="btn-primary" onclick="showPage('contact')">Hire Salesforce Experts</button>
     </section>
   </main>
 
   <section id="services" class="hidden fade-in">
-    <div style="text-align: center; margin-bottom: 3rem;">
-      <h2>Our Core Services</h2>
-      <div style="margin-top: 20px;" class="service-tabs">
-        <button class="tab-btn active" onclick="switchService(event, 'sf-solutions')">Solutions</button>
-        <button class="tab-btn" onclick="switchService(event, 'resource-hiring')">Staffing</button>
+    <div class="section-header">
+      <h2>Our Services</h2>
+      <p>Flexible engagement models and quick onboarding.</p>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchService(event, 'serv-solutions')">Salesforce Solutions</button>
+      <button class="tab-btn" onclick="switchService(event, 'serv-hiring')">Resource Hiring</button>
+    </div>
+    <div id="serv-solutions" class="service-content grid">
+      <div class="card"><h3>Implementation</h3><p>Strategy and deployment for new Salesforce instances.</p></div>
+      <div class="card"><h3>Integration</h3><p>Connecting Salesforce with your existing tech stack.</p></div>
+      <div class="card"><h3>Automation QA</h3><p>Specialized Salesforce testing and quality assurance.</p></div>
+    </div>
+    <div id="serv-hiring" class="service-content grid hidden">
+      <div class="card"><h3>Full-Time</h3><p>Permanent experts for long-term growth.</p></div>
+      <div class="card"><h3>Contract</h3><p>Specialized talent for project-based needs.</p></div>
+      <div class="card"><h3>Freelance</h3><p>Flexible, on-demand consulting support.</p></div>
+    </div>
+  </section>
+
+  <section id="ecosystem" class="hidden fade-in">
+    <div class="section-header">
+      <h2>Cloud & Platform Expertise</h2>
+      <p>Deep technical knowledge across industry-specific clouds.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Core Success Clouds</h3>
+        <div class="tag-container">
+          <span class="tag">Sales Cloud</span><span class="tag">Service Cloud</span>
+          <span class="tag">Marketing Cloud</span><span class="tag">Commerce Cloud</span>
+          <span class="tag">Experience Cloud</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Industry Verticals</h3>
+        <div class="tag-container">
+          <span class="tag">Financial Services Cloud</span><span class="tag">Health Cloud</span>
+          <span class="tag">Nonprofit Cloud</span><span class="tag">Education Cloud</span>
+          <span class="tag">nCino</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Technical Domain</h3>
+        <div class="tag-container">
+          <span class="tag">CPQ</span><span class="tag">OmniStudio</span>
+          <span class="tag">Revenue Cloud</span><span class="tag">FSL</span>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div id="sf-solutions" class="service-content grid">
-      <div class="card"><h3>Implementation</h3><p>End-to-end Salesforce setup and data migration.</p></div>
-      <div class="card"><h3>Managed Support</h3><p>24/7 support for your cloud infrastructure.</p></div>
-      <div class="card"><h3>Custom Development</h3><p>LWC, Apex, and customized API integrations.</p></div>
+  <section id="roles" class="hidden fade-in">
+    <div class="section-header">
+      <h2>Available Roles</h2>
+      <p>Pre-vetted professionals ready to integrate with your team.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Leadership & Design</h3>
+        <div class="tag-container">
+          <span class="tag">Architects</span><span class="tag">Technical Leads</span>
+          <span class="tag">Project Managers</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Development & Execution</h3>
+        <div class="tag-container">
+          <span class="tag">Developers</span><span class="tag">Admins</span>
+          <span class="tag">Consultants</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Analysis & Quality</h3>
+        <div class="tag-container">
+          <span class="tag">Business Analysts</span><span class="tag">QA Engineers</span>
+          <span class="tag">Testers</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="contact" class="hidden fade-in">
-    <div style="text-align: center; margin-bottom: 3rem;">
-      <h2>Secure Partnership</h2>
-      <p>Your data is encrypted and handled by certified professionals.</p>
+    <div class="section-header">
+      <h2>Connect With Us</h2>
+      <p>Get started with our experienced professionals today.</p>
     </div>
-    
     <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
-       <input type="text" class="hp-field" name="robot_check">
-       
-       <p style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">Let's Talk Business</p>
-       <a href="tel:+919307822237" class="btn-primary" style="display: inline-block; text-decoration: none;">Call +91 93078 22237</a>
-       <div style="margin-top: 2rem; opacity: 0.6; font-size: 0.8rem;">
-         <p>Secure Communication Enabled • Certified Salesforce Partners</p>
-       </div>
+      <p style="font-size: 1.5rem; font-weight: 800; margin-bottom: 20px;">Direct Contact</p>
+      <a href="tel:+919307822237" class="btn-primary" style="text-decoration: none; display: inline-block;">Call: +91 93078 22237</a>
+      <p style="margin-top: 30px; font-size: 0.9rem; color: var(--slate);">Available for immediate project discussion.</p>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2026 Codian Cloud Technologies. All Rights Reserved.</p>
+    <p>&copy; 2026 Codian Cloud Technologies. All rights reserved.</p>
   </footer>
 
   <script>
-    // PAGE NAVIGATION LOGIC
+    // FIX: Core Navigation Logic
     function showPage(pageId) {
       const pages = ['home', 'services', 'ecosystem', 'roles', 'contact'];
+      
       pages.forEach(id => {
-        const el = document.getElementById(id);
-        if(el) el.classList.toggle('hidden', id !== pageId);
+        const page = document.getElementById(id);
+        const link = document.getElementById('link-' + id);
+        
+        if (id === pageId) {
+          page.classList.remove('hidden');
+          if(link) link.classList.add('active');
+        } else {
+          page.classList.add('hidden');
+          if(link) link.classList.remove('active');
+        }
       });
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    // TAB SWITCHER LOGIC
+    // Sub-tab logic for Services page
     function switchService(evt, serviceName) {
       const contents = document.querySelectorAll(".service-content");
       contents.forEach(c => c.classList.add("hidden"));
       const tabs = document.querySelectorAll(".tab-btn");
       tabs.forEach(t => t.classList.remove("active"));
       
-      const activeContent = document.getElementById(serviceName);
-      if(activeContent) activeContent.classList.remove("hidden");
+      document.getElementById(serviceName).classList.remove("hidden");
       evt.currentTarget.classList.add("active");
-    }
-
-    // BASIC FORM "SECURITY" MOCKUP
-    function validateForm() {
-      const botField = document.querySelector('input[name="robot_check"]').value;
-      if (botField !== "") {
-        console.warn("Bot detected.");
-        return false;
-      }
-      return true;
     }
   </script>
 </body>
