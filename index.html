@@ -18,7 +18,6 @@
     body { font-family: 'Inter', sans-serif; color: var(--deep-navy); background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; }
 
-    /* Navigation */
     header { 
       position: fixed; width: 100%; top: 0; 
       background: rgba(255,255,255,0.95); 
@@ -36,26 +35,21 @@
     .nav-links a { text-decoration: none; color: var(--slate); font-weight: 600; font-size: 0.75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
     .nav-links a:hover, .nav-links a.active { color: var(--cobalt); }
 
-    /* Layout */
     section { padding: 120px 6% 60px; max-width: 1400px; margin: 0 auto; min-height: 85vh; }
     .section-header { text-align: center; margin-bottom: 3rem; }
     .section-header h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 10px; }
 
-    /* Cards & Tags */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
     .card { padding: 2rem; background: var(--white); border: 1px solid var(--border); border-radius: 16px; transition: 0.4s; height: 100%; }
     .card:hover { transform: translateY(-5px); border-color: var(--cobalt); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-    .card h3 { color: var(--cobalt); margin-bottom: 15px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .card h3 { color: var(--cobalt); margin-bottom: 15px; font-size: 1.1rem; text-transform: uppercase; }
     
-    .sub-section h4 { font-size: 0.75rem; text-transform: uppercase; color: var(--slate); margin-bottom: 12px; letter-spacing: 1px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+    .sub-section h4 { font-size: 0.75rem; text-transform: uppercase; color: var(--slate); margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
 
     .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-    .tag { background: #f4f5f7; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: var(--deep-navy); border: 1px solid transparent; transition: 0.3s; }
-    .tag:hover { border-color: var(--cobalt); color: var(--cobalt); background: #f0f7ff; }
+    .tag { background: #f4f5f7; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: var(--deep-navy); }
 
-    /* Buttons */
-    .btn-primary { padding: 14px 32px; background: var(--cobalt); color: white; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s; }
-    .btn-primary:hover { background: var(--deep-navy); transform: scale(1.05); }
+    .btn-primary { padding: 14px 32px; background: var(--cobalt); color: white; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block;}
 
     .hidden { display: none; }
     .fade-in { animation: fadeIn 0.6s ease-out forwards; }
@@ -63,13 +57,12 @@
 
     footer { background: var(--deep-navy); color: rgba(255,255,255,0.7); padding: 40px 5%; text-align: center; }
 
-    /* Mobile Styles */
     @media (max-width: 992px) {
       .menu-btn { display: block; }
       .nav-links { 
         display: none; position: absolute; top: 100%; left: 0; width: 100%; 
         background: white; flex-direction: column; padding: 30px; 
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
       }
       .nav-links.active { display: flex; }
     }
@@ -79,14 +72,14 @@
 
   <header>
     <nav class="navbar">
-      <div class="logo" onclick="showPage('home')">Codian <span>Cloud</span> Technologies</div>
+      <div class="logo" onclick="navigateTo('home')">Codian <span>Cloud</span> Technologies</div>
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
       <ul class="nav-links" id="mobileMenu">
-        <li><a onclick="showPage('home')" id="link-home">Home</a></li>
-        <li><a onclick="showPage('services')" id="link-services">Services</a></li>
-        <li><a onclick="showPage('ecosystem')" id="link-ecosystem">Expertise</a></li>
-        <li><a onclick="showPage('roles')" id="link-roles">Talent Hub</a></li>
-        <li><a onclick="showPage('contact')" id="link-contact">Contact</a></li>
+        <li><a onclick="navigateTo('home')" id="link-home">Home</a></li>
+        <li><a onclick="navigateTo('services')" id="link-services">Services</a></li>
+        <li><a onclick="navigateTo('ecosystem')" id="link-ecosystem">Expertise</a></li>
+        <li><a onclick="navigateTo('roles')" id="link-roles">Talent Hub</a></li>
+        <li><a onclick="navigateTo('contact')" id="link-contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -95,7 +88,7 @@
     <section style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
       <h1 style="font-size: clamp(2.2rem, 7vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem;">Expert Salesforce & <br>Multi-Cloud Solutions</h1>
       <p style="font-size: 1.1rem; color: var(--slate); max-width: 800px; margin-bottom: 2rem;">Architecting excellence for enterprise IT through mastery of Salesforce, AI, and scalable cloud infrastructure.</p>
-      <button class="btn-primary" onclick="showPage('contact')">Connect With Us</button>
+      <button class="btn-primary" onclick="navigateTo('contact')">Connect With Us</button>
     </section>
   </main>
 
@@ -194,32 +187,69 @@
       <p style="margin-bottom: 5px; font-weight: 600;">Email</p>
       <p id="email-display" style="font-size: 1.1rem; color: var(--cobalt); font-weight: 700; margin-bottom: 20px;"></p>
       <p style="margin-bottom: 5px; font-weight: 600;">Phone</p>
-      <a href="tel:+919307822237" class="btn-primary" style="text-decoration:none; display:inline-block;">+91 93078 22237</a>
+      <a href="tel:+919307822237" class="btn-primary">+91 93078 22237</a>
     </div>
   </section>
 
   <footer>
     <p style="font-weight: 800; color: white; margin-bottom: 5px;">CODIAN CLOUD TECHNOLOGIES</p>
-    <p>&copy; 2026 Innovation Globally. All rights reserved.</p>
+    <p>&copy; 2026 Delivering Innovation. All rights reserved.</p>
   </footer>
 
   <script>
-    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    // 1. MOBILE MENU TOGGLE
+    function toggleMenu() { 
+      document.getElementById('mobileMenu').classList.toggle('active'); 
+    }
+
+    // 2. MAIN NAVIGATION LOGIC (With Hash Support)
+    function navigateTo(pageId) {
+      // Update the URL hash (e.g., #ecosystem)
+      window.location.hash = pageId;
+      showPage(pageId);
+    }
 
     function showPage(pageId) {
       const pages = ['home', 'services', 'ecosystem', 'roles', 'contact'];
+      
       pages.forEach(id => {
-        document.getElementById(id).classList.toggle('hidden', id !== pageId);
+        const section = document.getElementById(id);
         const link = document.getElementById('link-' + id);
-        if(link) link.classList.toggle('active', id === pageId);
+        
+        if (id === pageId) {
+          section.classList.remove('hidden');
+          if(link) link.classList.add('active');
+        } else {
+          section.classList.add('hidden');
+          if(link) link.classList.remove('active');
+        }
       });
+      
       document.getElementById('mobileMenu').classList.remove('active');
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
+    // 3. INITIALIZATION ON LOAD
     window.onload = function() {
+      // Email Protection logic
       const u = "info", d = "codiancloudtech.com";
       document.getElementById('email-display').innerHTML = `<a href="mailto:${u}@${d}" style="text-decoration:none; color:inherit;">${u}@${d}</a>`;
+
+      // Check URL hash on page load (e.g., codiancloudtech.com/#roles)
+      const currentHash = window.location.hash.replace('#', '');
+      const validPages = ['home', 'services', 'ecosystem', 'roles', 'contact'];
+      
+      if (currentHash && validPages.includes(currentHash)) {
+        showPage(currentHash);
+      } else {
+        showPage('home'); // Default to home if no valid hash
+      }
+    };
+
+    // 4. BROWSER BACK/FORWARD BUTTON SUPPORT
+    window.onhashchange = function() {
+      const currentHash = window.location.hash.replace('#', '');
+      if (currentHash) showPage(currentHash);
     };
   </script>
 </body>
