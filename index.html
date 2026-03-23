@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Codian Cloud Technologies | Enterprise Salesforce, Talent & Training</title>
+  <title>Codian CloudTech | Enterprise Salesforce, Talent & Training</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -39,29 +39,31 @@
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       z-index: 1000; 
       border-bottom: 1px solid var(--border); 
-      padding: 0.8rem 5%; 
+      padding: 0.6rem 5%; 
     }
     .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
     
-    /* UPDATED LOGO AREA */
+    /* RESPONSIVE LOGO & NAME AREA */
     .logo { 
-      font-size: 1.25rem; 
+      font-size: 1.4rem; 
       font-weight: 800; 
       cursor: pointer; 
-      text-transform: none; 
       display: flex; 
       align-items: center; 
-      gap: 12px; 
+      gap: 15px; 
       font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--deep-navy);
+      transition: 0.3s;
     }
     .logo img { 
-      max-height: 65px; /* Increased Size */
+      height: 75px; /* Desktop Size */
       width: auto; 
       display: block;
+      transition: all 0.3s ease;
     }
     .logo span { color: var(--cobalt); }
 
-    .menu-btn { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--deep-navy); }
+    .menu-btn { display: none; font-size: 1.8rem; cursor: pointer; background: none; border: none; color: var(--deep-navy); }
 
     .nav-links { list-style: none; display: flex; gap: 1.5rem; }
     .nav-links a { text-decoration: none; color: var(--slate); font-weight: 600; font-size: 0.75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; position: relative;}
@@ -69,10 +71,9 @@
     .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--cobalt); transition: 0.3s; }
     .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-    section { padding: 140px 6% 80px; max-width: 1400px; margin: 0 auto; min-height: 85vh; }
+    section { padding: 160px 6% 80px; max-width: 1400px; margin: 0 auto; min-height: 85vh; }
     .section-header { text-align: center; margin-bottom: 4rem; }
     .section-header h2 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 15px; letter-spacing: -1px; }
-    .section-header p { color: var(--slate); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .card { 
@@ -90,7 +91,6 @@
       box-shadow: var(--shadow-lg); 
     }
     .card h3 { color: var(--cobalt); margin-bottom: 15px; font-size: 1.25rem; font-weight: 700; }
-    .sub-section h4 { font-size: 0.8rem; text-transform: uppercase; color: var(--slate); margin-bottom: 15px; border-bottom: 1px solid #f0f1f3; padding-bottom: 8px; letter-spacing: 0.5px; }
 
     .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .tag { 
@@ -100,7 +100,6 @@
       font-size: 0.75rem; 
       font-weight: 600; 
       color: var(--deep-navy); 
-      border: 1px solid transparent; 
       transition: 0.3s; 
     }
     .tag:hover { border-color: var(--cobalt); color: var(--cobalt); background: #f0f7ff; }
@@ -121,7 +120,6 @@
     .btn-primary:hover { 
       background: var(--deep-navy); 
       transform: translateY(-3px); 
-      box-shadow: 0 15px 30px rgba(9, 30, 66, 0.2); 
     }
 
     .hidden { display: none; }
@@ -133,12 +131,19 @@
       color: rgba(255,255,255,0.7); 
       padding: 60px 5% 40px; 
       text-align: center; 
-      border-top-left-radius: 40px;
-      border-top-right-radius: 40px;
+      border-radius: 40px 40px 0 0;
     }
 
-    @media (max-width: 992px) {
+    /* RESPONSIVE LOGO SCALING */
+    @media (max-width: 1024px) {
+      .logo { font-size: 1.2rem; gap: 10px; }
+      .logo img { height: 60px; } /* Tablet Size */
+    }
+
+    @media (max-width: 768px) {
       .menu-btn { display: block; }
+      .logo { font-size: 1.1rem; gap: 8px; }
+      .logo img { height: 50px; } /* Mobile Size */
       .nav-links { 
         display: none; position: absolute; top: 100%; left: 0; width: 100%; 
         background: var(--white); flex-direction: column; padding: 30px; 
@@ -146,8 +151,6 @@
         text-align: center; 
       }
       .nav-links.active { display: flex; }
-      .nav-links a::after { display: none; }
-      .logo img { max-height: 50px; } /* Slightly smaller for mobile */
     }
   </style>
 </head>
@@ -157,7 +160,7 @@
     <nav class="navbar">
       <div class="logo" onclick="navigateTo('home')">
         <img src="https://raw.githubusercontent.com/Mangeshr94/codiancloudtech.com/main/Codian%20Logo.png" alt="Codian Logo">
-        Codian <span>Cloud</span>Tech
+        Codian <span>CloudTech</span>
       </div>
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
       <ul class="nav-links" id="mobileMenu">
@@ -191,19 +194,15 @@
     <div class="grid">
       <div class="card">
         <h3>Salesforce Administrator</h3>
-        <p style="color: var(--slate);">Comprehensive training covering configuration, security, and data management for the Admin certification.</p>
+        <p style="color: var(--slate);">Comprehensive training covering configuration, security, and data management.</p>
       </div>
       <div class="card">
         <h3>Salesforce Developer</h3>
-        <p style="color: var(--slate);">Deep dive into Apex, triggers, and declarative logic to build robust, scalable business solutions.</p>
+        <p style="color: var(--slate);">Deep dive into Apex, triggers, and declarative logic to build robust solutions.</p>
       </div>
       <div class="card">
         <h3>Lightning Web Components</h3>
-        <p style="color: var(--slate);">Modern UI development using the latest web standards on the Salesforce platform.</p>
-      </div>
-      <div class="card">
-        <h3>Salesforce Integration</h3>
-        <p style="color: var(--slate);">Master REST/SOAP APIs and middleware to connect Salesforce with any third-party system.</p>
+        <p style="color: var(--slate);">Modern UI development using the latest web standards on Salesforce.</p>
       </div>
     </div>
   </section>
@@ -218,22 +217,13 @@
         <h3>Core Success Clouds</h3>
         <div class="tag-container">
           <span class="tag">Sales Cloud</span><span class="tag">Service Cloud</span>
-          <span class="tag">Marketing Cloud</span><span class="tag">Commerce Cloud</span>
-          <span class="tag">Experience Cloud</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Industry Verticals</h3>
-        <div class="tag-container">
-          <span class="tag">Health Cloud</span><span class="tag">Financial Services Cloud</span>
-          <span class="tag">Nonprofit Cloud</span><span class="tag">Education Cloud</span>
+          <span class="tag">Marketing Cloud</span><span class="tag">Experience Cloud</span>
         </div>
       </div>
       <div class="card">
         <h3>Revenue & Intelligence</h3>
         <div class="tag-container">
-          <span class="tag">CPQ & Billing Cloud</span><span class="tag">Revenue Cloud</span>
-          <span class="tag">Tableau</span><span class="tag">MuleSoft</span>
+          <span class="tag">CPQ & Billing</span><span class="tag">Tableau</span><span class="tag">MuleSoft</span>
         </div>
       </div>
     </div>
@@ -247,36 +237,14 @@
     <div class="grid">
       <div class="card">
         <h3>Salesforce Excellence</h3>
-        <div class="sub-section">
-          <h4>Expert Directory</h4>
-          <div class="tag-container">
-            <span class="tag">Salesforce Architect</span><span class="tag">Salesforce Technical Lead</span>
-            <span class="tag">Salesforce Program Manager</span><span class="tag">Salesforce Developer</span>
-            <span class="tag">Salesforce Consultant</span><span class="tag">Salesforce Business Analyst</span>
-            <span class="tag">Salesforce Administrator</span>
-          </div>
+        <div class="tag-container">
+          <span class="tag">Architect</span><span class="tag">Developer</span><span class="tag">Consultant</span><span class="tag">Admin</span>
         </div>
       </div>
       <div class="card">
-        <h3>Enterprise & Engineering</h3>
-        <div class="sub-section">
-          <h4>Modern Technology Stack</h4>
-          <div class="tag-container">
-            <span class="tag">SAP Consultants</span><span class="tag">Java Full Stack</span>
-            <span class="tag">Python / AI / ML</span><span class="tag">Node.js / React</span>
-            <span class="tag">Angular / Vue</span><span class="tag">Mobile (iOS/Android)</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Cloud & Infrastructure</h3>
-        <div class="sub-section">
-          <h4>Scalable Architecture</h4>
-          <div class="tag-container">
-            <span class="tag">AWS Architects</span><span class="tag">Azure / GCP</span>
-            <span class="tag">DevOps / Kubernetes</span><span class="tag">Data Engineering</span>
-            <span class="tag">Cyber Security</span><span class="tag">QA Automation</span>
-          </div>
+        <h3>Modern Tech Stack</h3>
+        <div class="tag-container">
+          <span class="tag">Java Full Stack</span><span class="tag">Python / AI</span><span class="tag">React / Node.js</span>
         </div>
       </div>
     </div>
@@ -288,11 +256,11 @@
       <p>Flexible engagement models for Salesforce and IT engineering.</p>
     </div>
     <div class="grid">
-      <div class="card"><h3>Implementation</h3><p>Architecture and strategic deployment of Salesforce and Cloud solutions.</p></div>
+      <div class="card"><h3>Implementation</h3><p>Architecture and strategic deployment of Salesforce solutions.</p></div>
       <div class="card"><h3>Resource Hiring</h3><p>Full-time, contract, and freelance staffing with pre-vetted experts.</p></div>
       <div class="card" onclick="navigateTo('training')" style="cursor: pointer;">
         <h3>Training</h3>
-        <p>Corporate workshops and certification preparation for your internal teams. <strong>View Courses →</strong></p>
+        <p>Corporate workshops and certification preparation. <strong>View Courses →</strong></p>
       </div>
     </div>
   </section>
@@ -304,22 +272,18 @@
     </div>
     <div class="card" style="max-width: 500px; margin: 0 auto; text-align: center; border-radius: 32px;">
       <h3 style="margin-bottom: 30px;">Let's Connect</h3>
-      <p style="margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; color: var(--slate);">Email</p>
       <p id="email-display" style="font-size: 1.25rem; color: var(--cobalt); font-weight: 700; margin-bottom: 25px;"></p>
-      <p style="margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; color: var(--slate);">Contact</p>
-      <a href="tel:+919307822237" class="btn-primary" style="margin-top: 5px;">+91 93078 22237</a>
+      <a href="tel:+919307822237" class="btn-primary">+91 93078 22237</a>
     </div>
   </section>
 
   <footer>
-    <p style="font-weight: 800; color: white; margin-bottom: 10px; font-family: 'Plus Jakarta Sans'; letter-spacing: 1px;">CODIAN CLOUD TECHNOLOGIES</p>
+    <p style="font-weight: 800; color: white; margin-bottom: 10px; font-family: 'Plus Jakarta Sans'; letter-spacing: 1px;">CODIAN CLOUDTECH</p>
     <p>&copy; 2026 Delivering Innovation. All rights reserved.</p>
   </footer>
 
   <script>
-    function toggleMenu() { 
-      document.getElementById('mobileMenu').classList.toggle('active'); 
-    }
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
 
     function navigateTo(pageId) {
       window.location.hash = pageId;
@@ -332,13 +296,8 @@
         const section = document.getElementById(id);
         const link = document.getElementById('link-' + id);
         if (section) {
-          if (id === pageId) {
-            section.classList.remove('hidden');
-            if(link) link.classList.add('active');
-          } else {
-            section.classList.add('hidden');
-            if(link) link.classList.remove('active');
-          }
+          section.classList.toggle('hidden', id !== pageId);
+          if(link) link.classList.toggle('active', id === pageId);
         }
       });
       document.getElementById('mobileMenu').classList.remove('active');
@@ -348,20 +307,10 @@
     window.onload = function() {
       const u = "info", d = "codiancloudtech.com";
       document.getElementById('email-display').innerHTML = `<a href="mailto:${u}@${d}" style="text-decoration:none; color:inherit;">${u}@${d}</a>`;
-
-      const currentHash = window.location.hash.replace('#', '');
-      const validPages = ['home', 'services', 'ecosystem', 'roles', 'training', 'contact'];
-      if (currentHash && validPages.includes(currentHash)) {
-        showPage(currentHash);
-      } else {
-        showPage('home');
-      }
+      showPage(window.location.hash.replace('#', '') || 'home');
     };
 
-    window.onhashchange = function() {
-      const currentHash = window.location.hash.replace('#', '');
-      if (currentHash) showPage(currentHash);
-    };
+    window.onhashchange = function() { showPage(window.location.hash.replace('#', '')); };
   </script>
 </body>
 </html>
